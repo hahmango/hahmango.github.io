@@ -28,7 +28,7 @@
 <meta property="og:description" content="uva11400 Lighting System Design 题目You are given the task to design a lighting system for a huge conference hall. After doing a lot of calculation and sketching, you have figured out the requirements f">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-04-05T08:07:14.000Z">
-<meta property="article:modified_time" content="2020-04-05T08:54:29.270Z">
+<meta property="article:modified_time" content="2020-04-05T11:50:54.441Z">
 <meta property="article:author" content="hahmango">
 <meta property="article:tag" content="DP">
 <meta name="twitter:card" content="summary">
@@ -213,7 +213,7 @@
               <span class="post-meta-item-text">Posted on</span>
               
 
-              <time title="Created: 2020-04-05 16:07:14 / Modified: 16:54:29" itemprop="dateCreated datePublished" datetime="2020-04-05T16:07:14+08:00">2020-04-05</time>
+              <time title="Created: 2020-04-05 16:07:14 / Modified: 19:50:54" itemprop="dateCreated datePublished" datetime="2020-04-05T16:07:14+08:00">2020-04-05</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -241,7 +241,7 @@
 
       
         <p><a href="https://vjudge.net/problem/UVA-11400" target="_blank" rel="noopener">uva11400 Lighting System Design</a></p>
-<h4 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h4><p>You are given the task to design a lighting system for a huge conference hall. After doing a lot of calculation and sketching, you have figured out the requirements for an energy-efficient design that can properly illuminate the entire hall. According to your design, you need lamps of n different power ratings. For some strange current regulation method, all the lamps need to be fed with the same amount of current. So, each category of lamp has a corresponding voltage rating. Now, you know the number of lamps and cost of every single unit of lamp for each category. But the problem is, you are to buy equivalent voltage sources for all the lamp categories. You can buy a single voltage source for each category (Each source is capable of supplying to infinite number of lamps of its voltage rating.) and complete the design. But the accounts section of your company soon figures out that they might be able to reduce the total system cost by eliminating some of the voltage sources and replacing the lamps of that category with higher rating lamps. Certainly you can never replace a lamp by a lower rating lamp as some portion of the hall might not be illuminated then. You are more concerned about money-saving than energy-saving. Find the minimum possible cost to design the system.</p>
+<h4 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h4><p>You are given the task to design a lighting system for a huge conference hall. After doing a lot of calculation and sketching, you have figured out the requirements for an energy-efficient design that can properly illuminate the entire hall. According to your design, you need lamps of n different power ratings. For some strange current regulation method, all the lamps need to be fed with the same amount of current. So, each category of lamp has a corresponding voltage rating.<a id="more"></a> Now, you know the number of lamps and cost of every single unit of lamp for each category. But the problem is, you are to buy equivalent voltage sources for all the lamp categories. You can buy a single voltage source for each category (Each source is capable of supplying to infinite number of lamps of its voltage rating.) and complete the design. But the accounts section of your company soon figures out that they might be able to reduce the total system cost by eliminating some of the voltage sources and replacing the lamps of that category with higher rating lamps. Certainly you can never replace a lamp by a lower rating lamp as some portion of the hall might not be illuminated then. You are more concerned about money-saving than energy-saving. Find the minimum possible cost to design the system.</p>
 <h4 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h4><p>Each case in the input begins with n (1 ≤ n ≤ 1000), denoting the number of categories. Each of the following n lines describes a category. A category is described by 4 integers - V (1 ≤ V ≤ 132000), the voltage rating, K (1 ≤ K ≤ 1000), the cost of a voltage source of this rating, C (1 ≤ C ≤ 10), the cost of a lamp of this rating and L (1 ≤ L ≤ 100), the number of lamps required in this category. The input terminates with a test case where n = 0. This case should not be processed.</p>
 <h4 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h4><p>For each test case, print the minimum possible cost to design the system.</p>
 <h4 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h4><p>有一个照明系统需要用到n种灯，每种灯的电压为V，电源费用K，每个灯泡费用为C，需要该灯的数量为L。注意到，电压相同的灯泡只需要共享一个对应的电源即可，还有电压低的灯泡可以被电压高的灯泡替代。为了节约成本，你将设计一种系统，使之最便宜。</p>
