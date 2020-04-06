@@ -30,7 +30,7 @@
 <meta property="og:description" content="uva11584 Partitioning by Palindromes 题目We say a sequence of char- acters is a palindrome if it is the same written forwards and backwards. For example, ‘racecar’ is a palindrome, but ‘fastcar’ is not.">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-04-06T10:06:29.000Z">
-<meta property="article:modified_time" content="2020-04-06T10:40:41.190Z">
+<meta property="article:modified_time" content="2020-04-06T10:52:47.399Z">
 <meta property="article:author" content="hahmango">
 <meta property="article:tag" content="DP">
 <meta property="article:tag" content="uva">
@@ -217,7 +217,7 @@
               <span class="post-meta-item-text">Posted on</span>
               
 
-              <time title="Created: 2020-04-06 18:06:29 / Modified: 18:40:41" itemprop="dateCreated datePublished" datetime="2020-04-06T18:06:29+08:00">2020-04-06</time>
+              <time title="Created: 2020-04-06 18:06:29 / Modified: 18:52:47" itemprop="dateCreated datePublished" datetime="2020-04-06T18:06:29+08:00">2020-04-06</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -249,8 +249,8 @@
 <p>For example:<br>• ‘racecar’ is already a palindrome, therefore it can be partitioned into one group.<br>• ‘fastcar’ does not con- tain any non-trivial palin- dromes, so it must be par- titioned as (‘f’, ‘a’, ‘s’, ‘t’, ‘c’, ‘a’, ‘r’).<br>• ‘aaadbccb’ can be parti- tioned as (‘aaa’, ‘d’, ‘bccb’).</p>
 <h4 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h4><p>Can you read upside-down?<br>Input begins with the number n of test cases. Each test case consists of a single line of between 1 and 1000 lowercase letters, with no whitespace within.</p>
 <h4 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h4><p>For each test case, output a line containing the minimum number of groups required to partition the input into groups of palindromes.</p>
-<h4 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h4><p>给定一个字符串，判断最少有多少个回文串。<br>显然是线性结构上的 DP，设<strong>状态</strong><code>d[i]</code>为$1~i$的字符串中最少有多少个回文串，用两层$for$循环遍历，<strong>状态转移</strong>方程为<code>d[i] = min(d[i], d[j] + 1)</code>，表示$j+1~i$是一个回文串，然后决策。</p>
-<p>每一次循环都需要判断回文串，所以先进行预处理，把所有回文串找出来。注意回文串有奇数长度和偶数长度的。时间复杂度包括预处理的$O(n^2)$和 dp 的$O(n^2)$。</p>
+<h4 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h4><p>给定一个字符串，判断最少有多少个回文串。<br>显然是线性结构上的 DP，设<strong>状态</strong><code>d[i]</code>为$1\sim i$的字符串中最少有多少个回文串，用两层$for$循环遍历，<strong>状态转移</strong>方程为<code>d[i] = min(d[i], d[j] + 1)</code>，表示$j+1\sim i$是一个回文串，然后决策。</p>
+<p>每一次循环都需要判断回文串，所以先进行预处理，把所有回文串找出来。注意回文串有奇数长度和偶数长度的。<strong>时间复杂度</strong>包括预处理的$O(n^2)$和 dp 的$O(n^2)$。</p>
 <h4 id="DP"><a href="#DP" class="headerlink" title="DP"></a>DP</h4><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> F freopen(<span class="meta-string">"in.txt"</span>, <span class="meta-string">"r"</span>, stdin); freopen(<span class="meta-string">"out.txt"</span>, <span class="meta-string">"w"</span>, stdout);</span></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn = <span class="number">1e3</span> + <span class="number">10</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">bool</span> a[maxn][maxn];</span><br><span class="line"><span class="keyword">int</span> d[maxn]; <span class="comment">// d[i] 表示为 1~i 最少有多少个回文串</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;F</span><br><span class="line">  <span class="keyword">int</span> n;</span><br><span class="line">  <span class="keyword">char</span> s[maxn];</span><br><span class="line">  <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;n);</span><br><span class="line">  <span class="keyword">while</span>(n--) &#123;</span><br><span class="line">    <span class="built_in">memset</span>(a, <span class="number">0</span>, <span class="keyword">sizeof</span>(a));</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%s"</span>, s+<span class="number">1</span>); <span class="comment">// 空出0的位置，后面 dp 的时候就可以判断 a[1][i]</span></span><br><span class="line">    <span class="keyword">int</span> len = <span class="built_in">strlen</span>(s+<span class="number">1</span>);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>; i&lt;=len; i++) &#123; <span class="comment">// 预处理，先将所有的回文串标记出来</span></span><br><span class="line">      a[i][i] = <span class="number">1</span>;</span><br><span class="line">      <span class="keyword">for</span>(<span class="keyword">int</span> l=i<span class="number">-1</span>,r=i+<span class="number">1</span>,b1=<span class="number">1</span>,b2=<span class="number">1</span>; l+<span class="number">1</span>&gt;<span class="number">0</span> &amp;&amp; r&lt;=len; l--,r++) &#123;</span><br><span class="line">        <span class="keyword">if</span>(l&gt;<span class="number">0</span> &amp;&amp; s[l] != s[r]) b1 = <span class="number">0</span>; <span class="comment">// l~r 长度为奇数</span></span><br><span class="line">        a[l][r] = b1;</span><br><span class="line">        <span class="keyword">if</span>(s[l+<span class="number">1</span>] != s[r]) b2 = <span class="number">0</span>; <span class="comment">// l+1~r 长度为偶数</span></span><br><span class="line">        a[l+<span class="number">1</span>][r] = b2;</span><br><span class="line">        <span class="keyword">if</span>(!b1 &amp;&amp; !b2) <span class="keyword">break</span>;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    d[<span class="number">0</span>] = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>; i&lt;=len; i++) &#123;</span><br><span class="line">      d[i] = i; <span class="comment">// 初始化 d[i], 最多只有 i 个</span></span><br><span class="line">      <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>; j&lt;i; j++)</span><br><span class="line">        <span class="keyword">if</span>(a[j+<span class="number">1</span>][i]) d[i] = <span class="built_in">min</span>(d[i], d[j] + <span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, d[len]);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
     </div>
 
@@ -465,6 +465,59 @@
   
 
   
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
 
   
 
