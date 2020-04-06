@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://hahmango.github.io/categories/index.html</loc>
+    
+    <lastmod>2020-04-06T11:07:10.195Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://hahmango.github.io/tags/index.html</loc>
+    
+    <lastmod>2020-04-06T11:06:22.154Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://hahmango.github.io/2020/04/06/uva11584-Partitioning-by-Palindromes-%E7%BA%BF%E6%80%A7%E7%BB%93%E6%9E%84DP/</loc>
     
     <lastmod>2020-04-06T10:52:47.399Z</lastmod>
@@ -33,20 +47,6 @@
     <loc>https://hahmango.github.io/2020/04/05/uva116-Unidirection-TSP-%E5%A4%9A%E6%AE%B5%E5%9B%BEDP/</loc>
     
     <lastmod>2020-04-06T02:53:51.684Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://hahmango.github.io/tags/index.html</loc>
-    
-    <lastmod>2020-04-05T06:10:10.843Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://hahmango.github.io/categories/index.html</loc>
-    
-    <lastmod>2020-04-05T06:08:18.740Z</lastmod>
     
   </url>
   
