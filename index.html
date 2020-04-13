@@ -214,7 +214,7 @@
               <span class="post-meta-item-text">Posted on</span>
               
 
-              <time title="Created: 2020-04-13 19:51:03 / Modified: 20:31:46" itemprop="dateCreated datePublished" datetime="2020-04-13T19:51:03+08:00">2020-04-13</time>
+              <time title="Created: 2020-04-13 19:51:03 / Modified: 20:38:17" itemprop="dateCreated datePublished" datetime="2020-04-13T19:51:03+08:00">2020-04-13</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -238,16 +238,15 @@
 
       
           <p><a href="https://ac.nowcoder.com/acm/contest/5166/D" target="_blank" rel="noopener">DIY Masks at Home</a></p>
-<h4 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h4><p>题意是给你一个由大写字母构成的二维矩阵，你需要找到一个最大的正方形，使得这个正方形内只包含一种字母。</p>
-<p>有两种方法：</p>
-<ol>
-<li><p>一种是直接 DP，遍历每一个块，用<code>d[i][j]</code>表示以 $(i, j)$ 为右下角坐标，能行成的最大的正方形的边长是多少。<strong>状态转移</strong>方程为 $d(i, j) = min(d(i-1, j-1), min(d(i-1, j), d(i, j-1)))$，每一次都与 $(i-1,j-1),(i-1,j),(i,j-1)$ 三个点判断是否能形成同一个颜色正方形。注意也需要对 $d(i-1, j-1)$ 进行决策，因为会有这种情况：$(i, j)$ 这个方块的左边和上面都是两个正方形，而 $(i-1, j-1)$ 只是这两个正方形的交点，所以他会影响<code>d[i][j]</code>的大小。<br>时间复杂度：$O(nm)$</p>
-</li>
-<li><p>另一种方法是用二分，每次去找当前划分后的矩阵是否是同一个颜色的正方形，找不到的话继续划分，找到了直接跳出。<br>时间复杂度：$O(nmlog(n))$</p>
-</li>
-</ol>
-<h4 id="DP"><a href="#DP" class="headerlink" title="DP"></a>DP</h4><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> F freopen(<span class="meta-string">"in.txt"</span>, <span class="meta-string">"r"</span>, stdin); freopen(<span class="meta-string">"out.txt"</span>, <span class="meta-string">"w"</span>, stdout);</span></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn = <span class="number">2e3</span> + <span class="number">10</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">char</span> g[maxn][maxn];</span><br><span class="line"><span class="keyword">int</span> d[maxn][maxn];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;F</span><br><span class="line">  <span class="keyword">int</span> T, n, m;</span><br><span class="line">  <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;T);</span><br><span class="line">  <span class="keyword">while</span>(T--) &#123;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d%d"</span>, &amp;n, &amp;m);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>; i&lt;=n; i++)</span><br><span class="line">      <span class="built_in">scanf</span>(<span class="string">"%s"</span>, g[i]+<span class="number">1</span>);</span><br><span class="line">    <span class="keyword">int</span> ans = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>; i&lt;=n; i++)</span><br><span class="line">      <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">1</span>; j&lt;=m; j++) &#123;</span><br><span class="line">        d[i][j] = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">if</span>(g[i<span class="number">-1</span>][j<span class="number">-1</span>]==g[i][j] &amp;&amp; g[i<span class="number">-1</span>][j]==g[i][j] &amp;&amp; g[i][j<span class="number">-1</span>]==g[i][j])</span><br><span class="line">          d[i][j] = <span class="built_in">min</span>(d[i<span class="number">-1</span>][j<span class="number">-1</span>], <span class="built_in">min</span>(d[i<span class="number">-1</span>][j], d[i][j<span class="number">-1</span>])) + <span class="number">1</span>;</span><br><span class="line">        ans = <span class="built_in">max</span>(ans, d[i][j]);</span><br><span class="line">      &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, ans);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
+<h4 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h4><p>题意是给你一个由大写字母构成的二维矩阵，你需要找到一个最大的正方形，使得这个正方形内只包含一种字母。
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/04/13/2020-Wuhan-University-Collegiate-Programming-Contest-Preliminary-Contest-DIY-Masks-at-Home/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
