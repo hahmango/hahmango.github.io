@@ -22,32 +22,36 @@
     var CONFIG = {"hostname":"hahmango.github.io","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="shut up and show you my code">
-<meta property="og:type" content="website">
-<meta property="og:title" content="hahmango&#39;s blog">
-<meta property="og:url" content="https://hahmango.github.io/index.html">
+  <meta name="description" content="算字节问题描述　　在计算机存储中，12.5MB是多少字节？ 答案提交　　这是一道结果填空的题，你只需要算出结果后提交即可。本题的结果为一个整数，在提交答案时只填写这个整数，填写多余的内容将无法得分。  答案为$12.5  1024  1024&#x3D;13107200$   括号序列问题描述　　由1对括号，可以组成一种合法括号序列：()。　　由2对括号，可以组成两种合法括号序列：()()、(())。　　由">
+<meta property="og:type" content="article">
+<meta property="og:title" content="2020蓝桥杯省赛模拟">
+<meta property="og:url" content="https://hahmango.github.io/2020/04/18/2020%E8%93%9D%E6%A1%A5%E6%9D%AF%E7%9C%81%E8%B5%9B%E6%A8%A1%E6%8B%9F/index.html">
 <meta property="og:site_name" content="hahmango&#39;s blog">
-<meta property="og:description" content="shut up and show you my code">
+<meta property="og:description" content="算字节问题描述　　在计算机存储中，12.5MB是多少字节？ 答案提交　　这是一道结果填空的题，你只需要算出结果后提交即可。本题的结果为一个整数，在提交答案时只填写这个整数，填写多余的内容将无法得分。  答案为$12.5  1024  1024&#x3D;13107200$   括号序列问题描述　　由1对括号，可以组成一种合法括号序列：()。　　由2对括号，可以组成两种合法括号序列：()()、(())。　　由">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-04-18T07:04:13.000Z">
+<meta property="article:modified_time" content="2020-04-20T12:29:26.596Z">
 <meta property="article:author" content="hahmango">
-<meta property="article:tag" content="uva">
-<meta property="article:tag" content="algorithm">
+<meta property="article:tag" content="DP">
+<meta property="article:tag" content="蓝桥杯">
+<meta property="article:tag" content="Kruskal">
+<meta property="article:tag" content="并查集">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="https://hahmango.github.io/">
+<link rel="canonical" href="https://hahmango.github.io/2020/04/18/2020%E8%93%9D%E6%A1%A5%E6%9D%AF%E7%9C%81%E8%B5%9B%E6%A8%A1%E6%8B%9F/">
 
 
 <script id="page-configurations">
   // https://hexo.io/docs/variables.html
   CONFIG.page = {
     sidebar: "",
-    isHome : true,
-    isPost : false,
+    isHome : false,
+    isPost : true,
     lang   : 'en'
   };
 </script>
 
-  <title>hahmango's blog</title>
+  <title>2020蓝桥杯省赛模拟 | hahmango's blog</title>
   
 
 
@@ -183,9 +187,10 @@
         <div class="content-wrap">
           
 
-          <div class="content index posts-expand">
+          <div class="content post posts-expand">
             
-      
+
+    
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
@@ -201,10 +206,9 @@
       <meta itemprop="name" content="hahmango's blog">
     </span>
       <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/04/18/2020%E8%93%9D%E6%A1%A5%E6%9D%AF%E7%9C%81%E8%B5%9B%E6%A8%A1%E6%8B%9F/" class="post-title-link" itemprop="url">2020蓝桥杯省赛模拟</a>
-        </h2>
+        <h1 class="post-title" itemprop="name headline">
+          2020蓝桥杯省赛模拟
+        </h1>
 
         <div class="post-meta">
             <span class="post-meta-item">
@@ -243,7 +247,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h3 id="算字节"><a href="#算字节" class="headerlink" title="算字节"></a>算字节</h3><p>问题描述<br>　　在计算机存储中，12.5MB是多少字节？</p>
+        <h3 id="算字节"><a href="#算字节" class="headerlink" title="算字节"></a>算字节</h3><p>问题描述<br>　　在计算机存储中，12.5MB是多少字节？</p>
 <p>答案提交<br>　　这是一道结果填空的题，你只需要算出结果后提交即可。本题的结果为一个整数，在提交答案时只填写这个整数，填写多余的内容将无法得分。</p>
 <blockquote>
 <p>答案为$12.5 <em> 1024 </em> 1024=13107200$</p>
@@ -324,735 +328,36 @@
 <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cmath&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;queue&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> F freopen(<span class="meta-string">"in.txt"</span>, <span class="meta-string">"r"</span>, stdin); freopen(<span class="meta-string">"out.txt"</span>, <span class="meta-string">"w"</span>, stdout);</span></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn = <span class="number">1e4</span> + <span class="number">10</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">node</span> &#123;</span></span><br><span class="line">  <span class="keyword">int</span> u, v;</span><br><span class="line">  <span class="keyword">double</span> w;</span><br><span class="line">  node(<span class="keyword">int</span> u=<span class="number">0</span>, <span class="keyword">int</span> v=<span class="number">0</span>, <span class="keyword">double</span> w=<span class="number">0</span>) : u(u), v(v), w(w) &#123;&#125;</span><br><span class="line">  <span class="keyword">bool</span> <span class="keyword">operator</span> &lt; (<span class="keyword">const</span> node &amp;r) <span class="keyword">const</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> w &gt; r.w;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> x[maxn], y[maxn], h[maxn], p[maxn];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">find</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> p[x] == x ? x : p[x] = <span class="built_in">find</span>(p[x]);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  <span class="keyword">int</span> n;</span><br><span class="line">  <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;n);</span><br><span class="line">  <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>; i&lt;=n; i++)</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d%d%d"</span>, &amp;x[i], &amp;y[i], &amp;h[i]);</span><br><span class="line">  priority_queue&lt;node&gt; q;</span><br><span class="line">  <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>; i&lt;=n; i++) <span class="comment">// 将边从小到大排序</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> j=i+<span class="number">1</span>; j&lt;=n; j++)</span><br><span class="line">      q.push(node(i, j, <span class="built_in">sqrt</span>((x[i]-x[j])*(x[i]-x[j]) + (y[i]-y[j])*(y[i]-y[j])) + (h[i]-h[j])*(h[i]-h[j])));</span><br><span class="line">  <span class="comment">// Kruskal</span></span><br><span class="line">  <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>; i&lt;=n; i++) p[i] = i; <span class="comment">// 初始化并查集</span></span><br><span class="line">  node u;</span><br><span class="line">  <span class="keyword">double</span> ans=<span class="number">0</span>;</span><br><span class="line">  <span class="keyword">while</span>(!q.empty()) &#123;</span><br><span class="line">    u = q.top(); q.pop();</span><br><span class="line">    <span class="keyword">int</span> x=<span class="built_in">find</span>(u.u), y=<span class="built_in">find</span>(u.v); <span class="comment">// 找两点各自所在的连通分量</span></span><br><span class="line">    <span class="keyword">if</span>(x != y) &#123;ans += u.w; p[x] = y;&#125; <span class="comment">// 若不在同一个连通分量，则合并连通分量</span></span><br><span class="line">  &#125;</span><br><span class="line">  <span class="built_in">printf</span>(<span class="string">"%.2f"</span>, ans);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <hr>
 
-      
     </div>
 
     
     
     
+
       <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
+          <div class="post-tags">
+              <a href="/tags/DP/" rel="tag"># DP</a>
+              <a href="/tags/%E8%93%9D%E6%A1%A5%E6%9D%AF/" rel="tag"># 蓝桥杯</a>
+              <a href="/tags/Kruskal/" rel="tag"># Kruskal</a>
+              <a href="/tags/%E5%B9%B6%E6%9F%A5%E9%9B%86/" rel="tag"># 并查集</a>
+          </div>
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://hahmango.github.io/2020/04/13/2020-Wuhan-University-Collegiate-Programming-Contest-Preliminary-Contest-DIY-Masks-at-Home/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="hahmango">
-      <meta itemprop="description" content="shut up and show you my code">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="hahmango's blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/04/13/2020-Wuhan-University-Collegiate-Programming-Contest-Preliminary-Contest-DIY-Masks-at-Home/" class="post-title-link" itemprop="url">2020 Wuhan University Collegiate Programming Contest (Preliminary Contest)--DIY Masks at Home</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-              
-
-              <time title="Created: 2020-04-13 19:51:03 / Modified: 20:44:51" itemprop="dateCreated datePublished" datetime="2020-04-13T19:51:03+08:00">2020-04-13</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/DP/" itemprop="url" rel="index"><span itemprop="name">DP</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p><a href="https://ac.nowcoder.com/acm/contest/5166/D" target="_blank" rel="noopener">DIY Masks at Home</a></p>
-<h4 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h4><p>题意是给你一个由大写字母构成的二维矩阵，你需要找到一个最大的正方形，使得这个正方形内只包含一种字母。
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/04/13/2020-Wuhan-University-Collegiate-Programming-Contest-Preliminary-Contest-DIY-Masks-at-Home/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
         
-      
-    </div>
 
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://hahmango.github.io/2020/04/13/2020-Wuhan-University-Collegiate-Programming-Contest-Preliminary-Contest-E-Yu-is-a-Brutal-Creature/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="hahmango">
-      <meta itemprop="description" content="shut up and show you my code">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="hahmango's blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/04/13/2020-Wuhan-University-Collegiate-Programming-Contest-Preliminary-Contest-E-Yu-is-a-Brutal-Creature/" class="post-title-link" itemprop="url">2020 Wuhan University Collegiate Programming Contest (Preliminary Contest)--E Yu is a Brutal Creature</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-              
-
-              <time title="Created: 2020-04-13 19:32:36 / Modified: 19:48:43" itemprop="dateCreated datePublished" datetime="2020-04-13T19:32:36+08:00">2020-04-13</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p><a href="https://ac.nowcoder.com/acm/contest/5166/E" target="_blank" rel="noopener">E Yu is a Brutal Creature</a></p>
-<h4 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h4><p>题意是找出 0 到 n 之间所有满足 $\frac{n^2+1}{n+1}$ 为整数的数的个数。由于</p>
-<script type="math/tex; mode=display">
-\frac{n^2+1}{n+1}=\frac{n^2+n}{n+1}-\frac{n-1}{n+1}=n-\frac{n-1}{n+1}</script><p>显然，只有当 $n=0$ 或 $1$ 的时候，式子才会是整数，所以答案是 $n-1$。
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/04/13/2020-Wuhan-University-Collegiate-Programming-Contest-Preliminary-Contest-E-Yu-is-a-Brutal-Creature/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
         
-      
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/04/13/2020-Wuhan-University-Collegiate-Programming-Contest-Preliminary-Contest-DIY-Masks-at-Home/" rel="prev" title="2020 Wuhan University Collegiate Programming Contest (Preliminary Contest)--DIY Masks at Home">
+      <i class="fa fa-chevron-left"></i> 2020 Wuhan University Collegiate Programming Contest (Preliminary Contest)--DIY Masks at Home
+    </a></div>
+      <div class="post-nav-item"></div>
     </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
       </footer>
+    
   </article>
   
   
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://hahmango.github.io/2020/04/13/2020-Wuhan-University-Collegiate-Programming-Contest-Preliminary-Contest-Best-Match/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="hahmango">
-      <meta itemprop="description" content="shut up and show you my code">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="hahmango's blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/04/13/2020-Wuhan-University-Collegiate-Programming-Contest-Preliminary-Contest-Best-Match/" class="post-title-link" itemprop="url">2020 Wuhan University Collegiate Programming Contest (Preliminary Contest)--Best Match</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-              
-
-              <time title="Created: 2020-04-13 18:18:55 / Modified: 19:48:58" itemprop="dateCreated datePublished" datetime="2020-04-13T18:18:55+08:00">2020-04-13</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p><a href="https://ac.nowcoder.com/acm/contest/5166/B" target="_blank" rel="noopener">Best Match</a></p>
-<h4 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h4><p>There is a traditional activity held by school of computer science in WuHan University: Five-day lovers. But this year, due to COVID-19, this event has to be held online and <strong>HamsterW</strong> wants to organize this activity to help schoolmates who have no girlfriend or boyfriend.
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/04/13/2020-Wuhan-University-Collegiate-Programming-Contest-Preliminary-Contest-Best-Match/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://hahmango.github.io/2020/04/13/2020-Wuhan-University-Collegiate-Programming-Contest-Preliminary-Contest-A-Monument-For-Heroes/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="hahmango">
-      <meta itemprop="description" content="shut up and show you my code">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="hahmango's blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/04/13/2020-Wuhan-University-Collegiate-Programming-Contest-Preliminary-Contest-A-Monument-For-Heroes/" class="post-title-link" itemprop="url">2020 Wuhan University Collegiate Programming Contest (Preliminary Contest)--A Monument For Heroes</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-              
-
-              <time title="Created: 2020-04-13 17:22:29 / Modified: 18:41:53" itemprop="dateCreated datePublished" datetime="2020-04-13T17:22:29+08:00">2020-04-13</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/DP/" itemprop="url" rel="index"><span itemprop="name">DP</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p><a href="https://ac.nowcoder.com/acm/contest/5166/A" target="_blank" rel="noopener">A Monument For Heroes</a></p>
-<h4 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h4><p>Months ago, the COVID-19 swept Wuhan. In order to control the outbreak, many people tried their best to help Wuhan, and with their help, we finally (almost) beat the virus, so we are going to set up a monument and write the names of all the contributors to express our gratitude to them. But there are so many people who have helped Wuhan so there are so many names to write, and how to arrange them is a big problem, so we decided that we will choose some representative names and rearrange their order to make them neatly. But until now we still do not know the maximum length of letters that will be write on the monument. We cannot leave enough space for these names without this number, so we leave this problem for you.
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/04/13/2020-Wuhan-University-Collegiate-Programming-Contest-Preliminary-Contest-A-Monument-For-Heroes/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://hahmango.github.io/2020/04/06/uva11584-Partitioning-by-Palindromes-%E7%BA%BF%E6%80%A7%E7%BB%93%E6%9E%84DP/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="hahmango">
-      <meta itemprop="description" content="shut up and show you my code">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="hahmango's blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/04/06/uva11584-Partitioning-by-Palindromes-%E7%BA%BF%E6%80%A7%E7%BB%93%E6%9E%84DP/" class="post-title-link" itemprop="url">uva11584 Partitioning by Palindromes 线性结构DP</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-              
-
-              <time title="Created: 2020-04-06 18:06:29 / Modified: 18:52:47" itemprop="dateCreated datePublished" datetime="2020-04-06T18:06:29+08:00">2020-04-06</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/DP/" itemprop="url" rel="index"><span itemprop="name">DP</span></a>
-                </span>
-                  , 
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/DP/%E7%BA%BF%E6%80%A7%E7%BB%93%E6%9E%84%E4%B8%8A%E7%9A%84DP/" itemprop="url" rel="index"><span itemprop="name">线性结构上的DP</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p><a href="https://vjudge.net/problem/UVA-11584" target="_blank" rel="noopener">uva11584 Partitioning by Palindromes</a></p>
-<h4 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h4><p>We say a sequence of char- acters is a palindrome if it is the same written forwards and backwards. For example, ‘racecar’ is a palindrome, but ‘fastcar’ is not.<br>A partition of a sequence of characters is a list of one or more disjoint non-empty groups of consecutive characters whose concatenation yields the initial sequence. For example, (‘race’, ‘car’) is a partition of ‘racecar’ into two groups.
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/04/06/uva11584-Partitioning-by-Palindromes-%E7%BA%BF%E6%80%A7%E7%BB%93%E6%9E%84DP/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://hahmango.github.io/2020/04/05/uva11400-Lighting-System-Design-%E7%BA%BF%E6%80%A7%E7%BB%93%E6%9E%84DP/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="hahmango">
-      <meta itemprop="description" content="shut up and show you my code">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="hahmango's blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/04/05/uva11400-Lighting-System-Design-%E7%BA%BF%E6%80%A7%E7%BB%93%E6%9E%84DP/" class="post-title-link" itemprop="url">uva11400 Lighting System Design 线性结构DP</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2020-04-05 16:07:14" itemprop="dateCreated datePublished" datetime="2020-04-05T16:07:14+08:00">2020-04-05</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-04-06 10:54:24" itemprop="dateModified" datetime="2020-04-06T10:54:24+08:00">2020-04-06</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/DP/" itemprop="url" rel="index"><span itemprop="name">DP</span></a>
-                </span>
-                  , 
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/DP/%E7%BA%BF%E6%80%A7%E7%BB%93%E6%9E%84%E4%B8%8A%E7%9A%84DP/" itemprop="url" rel="index"><span itemprop="name">线性结构上的DP</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p><a href="https://vjudge.net/problem/UVA-11400" target="_blank" rel="noopener">uva11400 Lighting System Design</a></p>
-<h4 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h4><p>You are given the task to design a lighting system for a huge conference hall. After doing a lot of calculation and sketching, you have figured out the requirements for an energy-efficient design that can properly illuminate the entire hall. According to your design, you need lamps of n different power ratings. For some strange current regulation method, all the lamps need to be fed with the same amount of current. So, each category of lamp has a corresponding voltage rating.
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/04/05/uva11400-Lighting-System-Design-%E7%BA%BF%E6%80%A7%E7%BB%93%E6%9E%84DP/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://hahmango.github.io/2020/04/05/uva12563-Jin-Ge-Jin-Qu-hao-01%E8%83%8C%E5%8C%85-%E6%BB%9A%E5%8A%A8%E6%95%B0%E7%BB%84/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="hahmango">
-      <meta itemprop="description" content="shut up and show you my code">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="hahmango's blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/04/05/uva12563-Jin-Ge-Jin-Qu-hao-01%E8%83%8C%E5%8C%85-%E6%BB%9A%E5%8A%A8%E6%95%B0%E7%BB%84/" class="post-title-link" itemprop="url">uva12563 Jin Ge Jin Qu hao 01背包+滚动数组</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2020-04-05 15:56:02" itemprop="dateCreated datePublished" datetime="2020-04-05T15:56:02+08:00">2020-04-05</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-04-06 10:54:08" itemprop="dateModified" datetime="2020-04-06T10:54:08+08:00">2020-04-06</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/DP/" itemprop="url" rel="index"><span itemprop="name">DP</span></a>
-                </span>
-                  , 
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/DP/%E5%A4%9A%E9%98%B6%E6%AE%B5%E5%86%B3%E7%AD%96%E9%97%AE%E9%A2%98/" itemprop="url" rel="index"><span itemprop="name">多阶段决策问题</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p><a href="https://vjudge.net/problem/UVA-12563#author=0" target="_blank" rel="noopener">uva12563 Jin Ge Jin Qu hao</a></p>
-<h4 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h4><p>(If you smiled when you see the title, this problem is for you ^_^)</p>
-<p>For those who don’t know KTV, see: <a href="http://en.wikipedia.org/wiki/Karaoke_box" target="_blank" rel="noopener">http://en.wikipedia.org/wiki/Karaoke_box</a></p>
-<p>There is one very popular song called Jin Ge Jin Qu(). It is a mix of 37 songs, and is extremely long (11 minutes and 18 seconds) — I know that there are Jin Ge Jin Qu II and III, and some other unofficial versions. But in this problem please forget about them.
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/04/05/uva12563-Jin-Ge-Jin-Qu-hao-01%E8%83%8C%E5%8C%85-%E6%BB%9A%E5%8A%A8%E6%95%B0%E7%BB%84/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://hahmango.github.io/2020/04/05/uva116-Unidirection-TSP-%E5%A4%9A%E6%AE%B5%E5%9B%BEDP/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="hahmango">
-      <meta itemprop="description" content="shut up and show you my code">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="hahmango's blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/04/05/uva116-Unidirection-TSP-%E5%A4%9A%E6%AE%B5%E5%9B%BEDP/" class="post-title-link" itemprop="url">uva116 Unidirection TSP 多段图DP</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2020-04-05 15:06:26" itemprop="dateCreated datePublished" datetime="2020-04-05T15:06:26+08:00">2020-04-05</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-04-06 10:53:51" itemprop="dateModified" datetime="2020-04-06T10:53:51+08:00">2020-04-06</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/DP/" itemprop="url" rel="index"><span itemprop="name">DP</span></a>
-                </span>
-                  , 
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/DP/%E5%A4%9A%E9%98%B6%E6%AE%B5%E5%86%B3%E7%AD%96%E9%97%AE%E9%A2%98/" itemprop="url" rel="index"><span itemprop="name">多阶段决策问题</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p><a href="https://vjudge.net/problem/UVA-116" target="_blank" rel="noopener">uva116 Unidirectional TSP</a></p>
-<h4 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h4><p>Problems that require minimum paths through some domain appear in many different areas of computer science. For example, one of the constraints in VLSI routing problems is minimizing wire length. The Traveling Salesperson Problem (TSP) — finding whether all the cities in a salesperson’s route can be visited exactly once with a specified limit on travel time — is one of the canonical examples of an NP-complete problem; solutions appear to require an inordinate amount of time to generate, but are simple to check.
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/04/05/uva116-Unidirection-TSP-%E5%A4%9A%E6%AE%B5%E5%9B%BEDP/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://hahmango.github.io/2020/04/05/uva1347-Tour-%E8%AE%B0%E5%BF%86%E5%8C%96%E6%90%9C%E7%B4%A2%E5%92%8C%E9%80%92%E6%8E%A8/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="hahmango">
-      <meta itemprop="description" content="shut up and show you my code">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="hahmango's blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/04/05/uva1347-Tour-%E8%AE%B0%E5%BF%86%E5%8C%96%E6%90%9C%E7%B4%A2%E5%92%8C%E9%80%92%E6%8E%A8/" class="post-title-link" itemprop="url">uva1347 Tour 记忆化搜索和递推</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2020-04-05 13:41:06" itemprop="dateCreated datePublished" datetime="2020-04-05T13:41:06+08:00">2020-04-05</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-04-06 10:54:01" itemprop="dateModified" datetime="2020-04-06T10:54:01+08:00">2020-04-06</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/DP/" itemprop="url" rel="index"><span itemprop="name">DP</span></a>
-                </span>
-                  , 
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/DP/DAG%E4%B8%8A%E7%9A%84DP/" itemprop="url" rel="index"><span itemprop="name">DAG上的DP</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p><a href="https://vjudge.net/problem/UVA-1347" target="_blank" rel="noopener">uva1347 Tour</a></p>
-<h4 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h4><p>John Doe, a skilled pilot, enjoys traveling. While on vacation, he rents a small plane and starts visiting beautiful places. To save money, John must determine the shortest closed tour that connects his destinations. Each destination is represented by a point in the plane pi =&lt; xi,yi &gt;. John uses the following strategy: he starts from the leftmost point, then he goes strictly left to right to the rightmost point, and then he goes strictly right back to the starting point. It is known that the points have distinct x-coordinates.
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/04/05/uva1347-Tour-%E8%AE%B0%E5%BF%86%E5%8C%96%E6%90%9C%E7%B4%A2%E5%92%8C%E9%80%92%E6%8E%A8/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-
   
 
 
@@ -1105,6 +410,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#算字节"><span class="nav-number">1.</span> <span class="nav-text">算字节</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#括号序列"><span class="nav-number">2.</span> <span class="nav-text">括号序列</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#边数"><span class="nav-number">3.</span> <span class="nav-text">边数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#字母排列"><span class="nav-number">4.</span> <span class="nav-text">字母排列</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#反倍数"><span class="nav-number">5.</span> <span class="nav-text">反倍数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#凯撒密码"><span class="nav-number">6.</span> <span class="nav-text">凯撒密码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#蛇形填数"><span class="nav-number">7.</span> <span class="nav-text">蛇形填数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#摆动序列-DP"><span class="nav-number">8.</span> <span class="nav-text">摆动序列 DP</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#植树"><span class="nav-number">9.</span> <span class="nav-text">植树</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#村庄通电-Kruskal-并查集"><span class="nav-number">10.</span> <span class="nav-text">村庄通电 Kruskal+并查集</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
