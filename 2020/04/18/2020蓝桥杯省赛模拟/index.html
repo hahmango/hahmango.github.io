@@ -30,7 +30,7 @@
 <meta property="og:description" content="这是第十一届蓝桥杯省模拟赛的试题和题解，C++组的，前四个是填空题，有点奇葩，后六个大题，难度总的来说还好，个人觉得倒数第二题比较难，看来还得多练啊。">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-04-18T07:04:13.000Z">
-<meta property="article:modified_time" content="2020-04-27T11:03:04.808Z">
+<meta property="article:modified_time" content="2020-04-27T12:30:58.751Z">
 <meta property="article:author" content="hahmango">
 <meta property="article:tag" content="DP">
 <meta property="article:tag" content="蓝桥杯">
@@ -224,7 +224,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-04-27 19:03:04" itemprop="dateModified" datetime="2020-04-27T19:03:04+08:00">2020-04-27</time>
+                <time title="Modified: 2020-04-27 20:30:58" itemprop="dateModified" datetime="2020-04-27T20:30:58+08:00">2020-04-27</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -248,32 +248,32 @@
 
       
         <p>这是第十一届蓝桥杯省模拟赛的试题和题解，C++组的，前四个是填空题，有点奇葩，后六个大题，难度总的来说还好，个人觉得倒数第二题比较难，看来还得多练啊。<a id="more"></a></p>
-<h3 id="算字节"><a href="#算字节" class="headerlink" title="算字节"></a>算字节</h3><p>问题描述<br>　　在计算机存储中，12.5MB是多少字节？</p>
+<h3 id="1-算字节"><a href="#1-算字节" class="headerlink" title="1. 算字节"></a>1. 算字节</h3><p>问题描述<br>　　在计算机存储中，12.5MB是多少字节？</p>
 <p>答案提交<br>　　这是一道结果填空的题，你只需要算出结果后提交即可。本题的结果为一个整数，在提交答案时只填写这个整数，填写多余的内容将无法得分。</p>
 <blockquote>
 <p>答案为 $12.5 \ast 1024 \ast 1024=13107200$</p>
 </blockquote>
 <p><del>话说怎么又出了这种题</del></p>
 <hr>
-<h3 id="括号序列"><a href="#括号序列" class="headerlink" title="括号序列"></a>括号序列</h3><p>问题描述<br>　　由1对括号，可以组成一种合法括号序列：<code>()</code>。<br>　　由2对括号，可以组成两种合法括号序列：<code>()()、(())</code>。<br>　　由4对括号组成的合法括号序列一共有多少种？</p>
+<h3 id="2-括号序列"><a href="#2-括号序列" class="headerlink" title="2. 括号序列"></a>2. 括号序列</h3><p>问题描述<br>　　由1对括号，可以组成一种合法括号序列：<code>()</code>。<br>　　由2对括号，可以组成两种合法括号序列：<code>()()、(())</code>。<br>　　由4对括号组成的合法括号序列一共有多少种？</p>
 <p>答案提交<br>　　这是一道结果填空的题，你只需要算出结果后提交即可。本题的结果为一个整数，在提交答案时只填写这个整数，填写多余的内容将无法得分。</p>
 <blockquote>
 <p>4对括号组成的合法括号序列有：<br>1层：<code>()()()(): 1</code><br>2层：<code>(())()(): 3, (())(()): 1, (()())(): 2, (()()()): 1</code><br>3层：<code>((())()): 2, ((()())): 1, ((()))(): 2</code><br>4层：<code>(((()))): 1</code><br>所以一共是<code>14</code>种</p>
 </blockquote>
 <hr>
-<h3 id="边数"><a href="#边数" class="headerlink" title="边数"></a>边数</h3><p>问题描述<br>　　一个包含有2019个结点的无向连通图，最少包含多少条边？</p>
+<h3 id="3-边数"><a href="#3-边数" class="headerlink" title="3. 边数"></a>3. 边数</h3><p>问题描述<br>　　一个包含有2019个结点的无向连通图，最少包含多少条边？</p>
 <p>答案提交<br>　　这是一道结果填空的题，你只需要算出结果后提交即可。本题的结果为一个整数，在提交答案时只填写这个整数，填写多余的内容将无法得分。</p>
 <blockquote>
 <p><code>n</code> 个结点的无向连通图，最少有<code>n-1</code>条边，再少就不连通了<br>答案为<code>2018</code></p>
 </blockquote>
 <hr>
-<h3 id="字母排列"><a href="#字母排列" class="headerlink" title="字母排列"></a>字母排列</h3><p>问题描述<br>　　将LANQIAO中的字母重新排列，可以得到不同的单词，如LANQIAO、AAILNOQ等，注意这7个字母都要被用上，单词不一定有具体的英文意义。<br>　　请问，总共能排列如多少个不同的单词。</p>
+<h3 id="4-字母排列"><a href="#4-字母排列" class="headerlink" title="4. 字母排列"></a>4. 字母排列</h3><p>问题描述<br>　　将LANQIAO中的字母重新排列，可以得到不同的单词，如LANQIAO、AAILNOQ等，注意这7个字母都要被用上，单词不一定有具体的英文意义。<br>　　请问，总共能排列如多少个不同的单词。</p>
 <p>答案提交<br>　　这是一道结果填空的题，你只需要算出结果后提交即可。本题的结果为一个整数，在提交答案时只填写这个整数，填写多余的内容将无法得分。</p>
 <blockquote>
 <p>7个字母求排列：$A_7^7$<br>由于有两个字母相同，所以要除以 $A_2^2$<br>答案为：$\frac{A_7^7}{A_2^2}=2520$</p>
 </blockquote>
 <hr>
-<h3 id="反倍数"><a href="#反倍数" class="headerlink" title="反倍数"></a>反倍数</h3><p>问题描述<br>　　给定三个整数 a, b, c，如果一个整数既不是 a 的整数倍也不是 b 的整数倍还不是 c 的整数倍，则这个数称为反倍数。<br>　　请问在 1 至 n 中有多少个反倍数。</p>
+<h3 id="5-反倍数"><a href="#5-反倍数" class="headerlink" title="5. 反倍数"></a>5. 反倍数</h3><p>问题描述<br>　　给定三个整数 a, b, c，如果一个整数既不是 a 的整数倍也不是 b 的整数倍还不是 c 的整数倍，则这个数称为反倍数。<br>　　请问在 1 至 n 中有多少个反倍数。</p>
 <p>输入格式<br>　　输入的第一行包含一个整数 n。<br>　　第二行包含三个整数 a, b, c，相邻两个数之间用一个空格分隔。</p>
 <p>输出格式<br>　　输出一行包含一个整数，表示答案。</p>
 <p>样例输入<br>30<br>2 3 6</p>
@@ -283,7 +283,7 @@
 <p>直接全部遍历一遍，每个数都对 a, b, c 分别求余，能整除就不要</p>
 <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  <span class="keyword">int</span> n, a, b, c, ans = <span class="number">0</span>;</span><br><span class="line">  <span class="built_in">scanf</span>(<span class="string">"%d%d%d%d"</span>, &amp;n, &amp;a, &amp;b, &amp;c);</span><br><span class="line">  <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>; i&lt;=n; i++)</span><br><span class="line">    <span class="keyword">if</span>(i%a &amp;&amp; i%b &amp;&amp; i%c) ans++;</span><br><span class="line">  <span class="built_in">printf</span>(<span class="string">"%d"</span>, ans);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <hr>
-<h3 id="凯撒密码"><a href="#凯撒密码" class="headerlink" title="凯撒密码"></a>凯撒密码</h3><p>问题描述<br>　　给定一个单词，请使用凯撒密码将这个单词加密。<br>　　凯撒密码是一种替换加密的技术，单词中的所有字母都在字母表上向后偏移3位后被替换成密文。即a变为d，b变为e，…，w变为z，x变为a，y变为b，z变为c。<br>　　例如，lanqiao会变成odqtldr。</p>
+<h3 id="6-凯撒密码"><a href="#6-凯撒密码" class="headerlink" title="6. 凯撒密码"></a>6. 凯撒密码</h3><p>问题描述<br>　　给定一个单词，请使用凯撒密码将这个单词加密。<br>　　凯撒密码是一种替换加密的技术，单词中的所有字母都在字母表上向后偏移3位后被替换成密文。即a变为d，b变为e，…，w变为z，x变为a，y变为b，z变为c。<br>　　例如，lanqiao会变成odqtldr。</p>
 <p>输入格式<br>　　输入一行，包含一个单词，单词中只包含小写英文字母。</p>
 <p>输出格式<br>　　输出一行，表示加密后的密文。</p>
 <p>样例输入<br>lanqiao</p>
@@ -292,7 +292,7 @@
 <p>先让每个字母变成整数，再<code>+3</code>然后对 26 取模就行了</p>
 <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> F freopen(<span class="meta-string">"in.txt"</span>, <span class="meta-string">"r"</span>, stdin); freopen(<span class="meta-string">"out.txt"</span>, <span class="meta-string">"w"</span>, stdout);</span></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn = <span class="number">1e2</span> + <span class="number">10</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  <span class="keyword">char</span> s[maxn];</span><br><span class="line">  <span class="built_in">scanf</span>(<span class="string">"%s"</span>, s);</span><br><span class="line">  <span class="keyword">int</span> n = <span class="built_in">strlen</span>(s);</span><br><span class="line">  <span class="keyword">char</span> c;</span><br><span class="line">  <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;n; i++) &#123;</span><br><span class="line">    c = (<span class="keyword">char</span>)(s[i]-<span class="string">'a'</span>+<span class="number">3</span>)%<span class="number">26</span>+<span class="string">'a'</span>;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%c"</span>, c);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <hr>
-<h3 id="蛇形填数"><a href="#蛇形填数" class="headerlink" title="蛇形填数"></a>蛇形填数</h3><p>问题描述<br>　　对于一个 n 行 m 列的表格，我们可以使用螺旋的方式给表格依次填上正整数，我们称填好的表格为一个螺旋矩阵。<br>　　例如，一个 4 行 5 列的螺旋矩阵如下：<br>　　1 2 3 4 5<br>　　14 15 16 17 6<br>　　13 20 19 18 7<br>　　12 11 10 9 8</p>
+<h3 id="7-蛇形填数"><a href="#7-蛇形填数" class="headerlink" title="7. 蛇形填数"></a>7. 蛇形填数</h3><p>问题描述<br>　　对于一个 n 行 m 列的表格，我们可以使用螺旋的方式给表格依次填上正整数，我们称填好的表格为一个螺旋矩阵。<br>　　例如，一个 4 行 5 列的螺旋矩阵如下：<br>　　1 2 3 4 5<br>　　14 15 16 17 6<br>　　13 20 19 18 7<br>　　12 11 10 9 8</p>
 <p>输入格式<br>　　输入的第一行包含两个整数 n, m，分别表示螺旋矩阵的行数和列数。<br>　　第二行包含两个整数 r, c，表示要求的行号和列号。</p>
 <p>输出格式<br>　　输出一个整数，表示螺旋矩阵中第 r 行第 c 列的元素的值。</p>
 <p>样例输入<br>4 5<br>2 2</p>
@@ -301,7 +301,7 @@
 <p>循环填数，每次循环填一圈数。一共 $n*m$ 个数，填满就跳出。</p>
 <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> F freopen(<span class="meta-string">"in.txt"</span>, <span class="meta-string">"r"</span>, stdin); freopen(<span class="meta-string">"out.txt"</span>, <span class="meta-string">"w"</span>, stdout);</span></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn = <span class="number">1e3</span> + <span class="number">10</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> a[maxn][maxn];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  <span class="keyword">int</span> n, m, r, c, x, y, cnt, tn;</span><br><span class="line">  <span class="built_in">scanf</span>(<span class="string">"%d%d%d%d"</span>, &amp;n, &amp;m, &amp;r, &amp;c);</span><br><span class="line">  tn = n * m;</span><br><span class="line">  cnt = a[x=<span class="number">0</span>][y=<span class="number">0</span>] = <span class="number">1</span>;</span><br><span class="line">  <span class="keyword">while</span>(cnt &lt; tn) &#123;</span><br><span class="line">    <span class="keyword">while</span>(y+<span class="number">1</span> &lt; m &amp;&amp; !a[x][y+<span class="number">1</span>]) a[x][++y] = ++cnt;</span><br><span class="line">    <span class="keyword">while</span>(x+<span class="number">1</span> &lt; n &amp;&amp; !a[x+<span class="number">1</span>][y]) a[++x][y] = ++cnt;</span><br><span class="line">    <span class="keyword">while</span>(y<span class="number">-1</span> &gt;= <span class="number">0</span> &amp;&amp; !a[x][y<span class="number">-1</span>]) a[x][--y] = ++cnt;</span><br><span class="line">    <span class="keyword">while</span>(x<span class="number">-1</span> &gt;=<span class="number">0</span> &amp;&amp; !a[x<span class="number">-1</span>][y]) a[--x][y] = ++cnt;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="built_in">printf</span>(<span class="string">"%d"</span>, a[r<span class="number">-1</span>][c<span class="number">-1</span>]);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <hr>
-<h3 id="摆动序列-DP"><a href="#摆动序列-DP" class="headerlink" title="摆动序列 DP"></a>摆动序列 DP</h3><p>问题描述<br>　　如果一个序列的奇数项都比前一项大，偶数项都比前一项小，则称为一个摆动序列。即 $a[2i]<a[2i-1]$, $a[2i+1]>a[2i]$。<br>　　小明想知道，长度为 m，每个数都是 1 到 n 之间的正整数的摆动序列一共有多少个。</p>
+<h3 id="8-摆动序列-DP"><a href="#8-摆动序列-DP" class="headerlink" title="8. 摆动序列 DP"></a>8. 摆动序列 DP</h3><p>问题描述<br>　　如果一个序列的奇数项都比前一项大，偶数项都比前一项小，则称为一个摆动序列。即 $a[2i]<a[2i-1]$, $a[2i+1]>a[2i]$。<br>　　小明想知道，长度为 m，每个数都是 1 到 n 之间的正整数的摆动序列一共有多少个。</p>
 <p>输入格式<br>　　输入一行包含两个整数 m，n。</p>
 <p>输出格式<br>　　输出一个整数，表示答案。答案可能很大，请输出答案除以10000的余数。</p>
 <p>样例输入<br>3 4</p>
@@ -311,7 +311,7 @@
 <p>一道<code>DP</code>题，外圈循环依次遍历<code>m</code>个位置，内圈循环对当前位置尝试填<code>n</code>个数。<strong><code>d[i][j]</code></strong>表示当前第<code>i</code>个位置放<code>j</code>，整个<code>1~i</code>的所有序列共有多少种选择。这里需要分情况，如果当前位置是奇数，则他需要比前一个数大，如果当前位置放<code>j</code>的话，则前一个位置上的数为<code>1~j-1</code>的都满足，而当前位置放<code>j-1</code>的所有序列肯定也被放<code>j</code>的包含，所以奇数位置时，正序填数，<strong>状态转移</strong>方程为<code>d[i][j] = (d[i-1][j-1] + d[i][j-1])</code>。偶数位置也同理，偶数位就逆序填数，<strong>状态转移</strong>方程为<code>d[i][j] = (d[i-1][j+1] + d[i][j+1])</code>。</p>
 <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> F freopen(<span class="meta-string">"in.txt"</span>, <span class="meta-string">"r"</span>, stdin); freopen(<span class="meta-string">"out.txt"</span>, <span class="meta-string">"w"</span>, stdout);</span></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn = <span class="number">1e3</span> + <span class="number">10</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> d[maxn][maxn]; <span class="comment">// d[i][j] 表示第 i 个位置放 j，整个 1~i 的序列共有多少种选择</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  <span class="keyword">int</span> m, n, ans=<span class="number">0</span>;</span><br><span class="line">  <span class="built_in">scanf</span>(<span class="string">"%d%d"</span>, &amp;m, &amp;n);</span><br><span class="line">  <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">1</span>; j&lt;=n; j++) d[<span class="number">1</span>][j] = <span class="number">1</span>;</span><br><span class="line">  <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">2</span>; i&lt;=m; i++) &#123;</span><br><span class="line">    <span class="keyword">if</span>(i&amp;<span class="number">1</span>)</span><br><span class="line">      <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">2</span>; j&lt;=n; j++) d[i][j] = (d[i<span class="number">-1</span>][j<span class="number">-1</span>] + d[i][j<span class="number">-1</span>]) % <span class="number">10000</span>;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">      <span class="keyword">for</span>(<span class="keyword">int</span> j=n<span class="number">-1</span>; j&gt;=<span class="number">1</span>; j--) d[i][j] = (d[i<span class="number">-1</span>][j+<span class="number">1</span>] + d[i][j+<span class="number">1</span>]) % <span class="number">10000</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">1</span>; j&lt;=n; j++) ans = (ans + d[m][j]) % <span class="number">10000</span>;</span><br><span class="line">  <span class="built_in">printf</span>(<span class="string">"%d"</span>, ans);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <hr>
-<h3 id="植树"><a href="#植树" class="headerlink" title="植树"></a>植树</h3><p>问题描述<br>　　小明和朋友们一起去郊外植树，他们带了一些在自己实验室精心研究出的小树苗。<br>　　小明和朋友们一共有 n 个人，他们经过精心挑选，在一块空地上每个人挑选了一个适合植树的位置，总共 n 个。他们准备把自己带的树苗都植下去。<br>　　然而，他们遇到了一个困难：有的树苗比较大，而有的位置挨太近，导致两棵树植下去后会撞在一起。<br>　　他们将树看成一个圆，圆心在他们找的位置上。如果两棵树对应的圆相交，这两棵树就不适合同时植下（相切不受影响），称为两棵树冲突。<br>　　小明和朋友们决定先合计合计，只将其中的一部分树植下去，保证没有互相冲突的树。他们同时希望这些树所能覆盖的面积和（圆面积和）最大。</p>
+<h3 id="9-植树"><a href="#9-植树" class="headerlink" title="9. 植树"></a>9. 植树</h3><p>问题描述<br>　　小明和朋友们一起去郊外植树，他们带了一些在自己实验室精心研究出的小树苗。<br>　　小明和朋友们一共有 n 个人，他们经过精心挑选，在一块空地上每个人挑选了一个适合植树的位置，总共 n 个。他们准备把自己带的树苗都植下去。<br>　　然而，他们遇到了一个困难：有的树苗比较大，而有的位置挨太近，导致两棵树植下去后会撞在一起。<br>　　他们将树看成一个圆，圆心在他们找的位置上。如果两棵树对应的圆相交，这两棵树就不适合同时植下（相切不受影响），称为两棵树冲突。<br>　　小明和朋友们决定先合计合计，只将其中的一部分树植下去，保证没有互相冲突的树。他们同时希望这些树所能覆盖的面积和（圆面积和）最大。</p>
 <p>输入格式<br>　　输入的第一行包含一个整数 n ，表示人数，即准备植树的位置数。<br>　　接下来 n 行，每行三个整数 x, y, r，表示一棵树在空地上的横、纵坐标和半径。</p>
 <p>输出格式<br>　　输出一行包含一个整数，表示在不冲突下可以植树的面积和。由于每棵树的面积都是圆周率的整数倍，请输出答案除以圆周率后的值（应当是一个整数）。</p>
 <p>样例输入<br>6<br>1 1 2<br>1 4 2<br>1 7 2<br>4 1 2<br>4 4 2<br>4 7 2</p>
@@ -320,7 +320,7 @@
 <p>这题实在没什么思路，用 DFS 暴力搜的。尽管靠能冲突能剪枝，但是还是指数级的，$O(n)=2^n$，之后会了再进行改进。<br>这里我先预处理冲突，将所有冲突计算出来，之后就可以不用每次重复计算，直接判断即可。DFS 的搜索树是 $n$ 层的二叉树，每次决策种这棵树和不种这棵树。</p>
 <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cmath&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> F freopen(<span class="meta-string">"in.txt"</span>, <span class="meta-string">"r"</span>, stdin); freopen(<span class="meta-string">"out.txt"</span>, <span class="meta-string">"w"</span>, stdout);</span></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn = <span class="number">1e3</span> + <span class="number">10</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> x[maxn], y[maxn], r[maxn], ar[maxn], n, d[maxn][maxn];</span><br><span class="line"><span class="keyword">bool</span> conflict[maxn][maxn], a[maxn];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">bool</span> <span class="title">isconflict</span><span class="params">(<span class="keyword">int</span> u, <span class="keyword">int</span> v)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="built_in">sqrt</span>((x[u]-x[v])*(x[u]-x[v]) + (y[u]-y[v])*(y[u]-y[v])) &lt; r[u]+r[v];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// inline void see() &#123;for(int i=1; i&lt;=n; i++) if(a[i])printf(" %d", i); printf("\n");&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">dfs</span><span class="params">(<span class="keyword">int</span> u)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">if</span>(u == n+<span class="number">1</span>) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">int</span> ans = dfs(u+<span class="number">1</span>);</span><br><span class="line">  <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>; i&lt;u; i++)</span><br><span class="line">    <span class="keyword">if</span>(a[i] &amp;&amp; conflict[i][u]) <span class="keyword">return</span> ans;</span><br><span class="line">  a[u] = <span class="number">1</span>;</span><br><span class="line">  ans = <span class="built_in">max</span>(ans, dfs(u+<span class="number">1</span>) + ar[u]);</span><br><span class="line">  a[u] = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;n);</span><br><span class="line">  <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>; i&lt;=n; i++) &#123;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d%d%d"</span>, &amp;x[i], &amp;y[i], &amp;r[i]);</span><br><span class="line">    ar[i] = r[i] * r[i]; <span class="comment">// 计算面积</span></span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>; i&lt;=n; i++) <span class="comment">// 预先计算冲突</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> j=i+<span class="number">1</span>; j&lt;=n; j++)</span><br><span class="line">      <span class="keyword">if</span>(isconflict(i, j)) conflict[i][j] = conflict[j][i] = <span class="number">1</span>;</span><br><span class="line">  <span class="built_in">printf</span>(<span class="string">"%d"</span>, dfs(<span class="number">1</span>));</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <hr>
-<h3 id="村庄通电-Kruskal-并查集"><a href="#村庄通电-Kruskal-并查集" class="headerlink" title="村庄通电 Kruskal+并查集"></a>村庄通电 Kruskal+并查集</h3><p>问题描述<br>　　2015年，全中国实现了户户通电。作为一名电力建设者，小明正在帮助一带一路上的国家通电。<br>　　这一次，小明要帮助 n 个村庄通电，其中 1 号村庄正好可以建立一个发电站，所发的电足够所有村庄使用。<br>　　现在，这 n 个村庄之间都没有电线相连，小明主要要做的是架设电线连接这些村庄，使得所有村庄都直接或间接的与发电站相通。<br>　　小明测量了所有村庄的位置（坐标）和高度，如果要连接两个村庄，小明需要花费两个村庄之间的坐标距离加上高度差的平方，形式化描述为坐标为 (x_1, y_1) 高度为 h_1 的村庄与坐标为 (x_2, y_2) 高度为 h_2 的村庄之间连接的费用为<br>　　$\sqrt{((x_1-x_2)<em>(x_1-x_2)+(y_1-y_2)</em>(y_1-y_2))}+(h_1-h_2)*(h_1-h_2)$。<br>　　在上式中 sqrt 表示取括号内的平方根。请注意括号的位置，高度的计算方式与横纵坐标的计算方式不同。<br>　　由于经费有限，请帮助小明计算他至少要花费多少费用才能使这 n 个村庄都通电。</p>
+<h3 id="10-村庄通电-Kruskal-并查集"><a href="#10-村庄通电-Kruskal-并查集" class="headerlink" title="10. 村庄通电 Kruskal+并查集"></a>10. 村庄通电 Kruskal+并查集</h3><p>问题描述<br>　　2015年，全中国实现了户户通电。作为一名电力建设者，小明正在帮助一带一路上的国家通电。<br>　　这一次，小明要帮助 n 个村庄通电，其中 1 号村庄正好可以建立一个发电站，所发的电足够所有村庄使用。<br>　　现在，这 n 个村庄之间都没有电线相连，小明主要要做的是架设电线连接这些村庄，使得所有村庄都直接或间接的与发电站相通。<br>　　小明测量了所有村庄的位置（坐标）和高度，如果要连接两个村庄，小明需要花费两个村庄之间的坐标距离加上高度差的平方，形式化描述为坐标为 (x_1, y_1) 高度为 h_1 的村庄与坐标为 (x_2, y_2) 高度为 h_2 的村庄之间连接的费用为<br>　　$\sqrt{((x_1-x_2)<em>(x_1-x_2)+(y_1-y_2)</em>(y_1-y_2))}+(h_1-h_2)*(h_1-h_2)$。<br>　　在上式中 sqrt 表示取括号内的平方根。请注意括号的位置，高度的计算方式与横纵坐标的计算方式不同。<br>　　由于经费有限，请帮助小明计算他至少要花费多少费用才能使这 n 个村庄都通电。</p>
 <p>输入格式<br>　　输入的第一行包含一个整数 n ，表示村庄的数量。<br>　　接下来 n 行，每个三个整数 x, y, h，分别表示一个村庄的横、纵坐标和高度，其中第一个村庄可以建立发电站。</p>
 <p>输出格式<br>　　输出一行，包含一个实数，四舍五入保留 2 位小数，表示答案。</p>
 <p>样例输入<br>4<br>1 1 3<br>9 9 7<br>8 8 6<br>4 5 4</p>
@@ -354,8 +354,8 @@
       <i class="fa fa-chevron-left"></i> 2020 Wuhan University Collegiate Programming Contest (Preliminary Contest)--DIY Masks at Home
     </a></div>
       <div class="post-nav-item">
-    <a href="/2020/04/27/%E6%9C%80%E9%95%BF%E4%B8%8A%E5%8D%87%E5%AD%90%E5%BA%8F%E5%88%97-LIS-DP-DP-%E4%BA%8C%E5%88%86/" rel="next" title="最长上升子序列 LIS--DP/DP+二分">
-      最长上升子序列 LIS--DP/DP+二分 <i class="fa fa-chevron-right"></i>
+    <a href="/2020/04/27/%E6%9C%80%E9%95%BF%E4%B8%8A%E5%8D%87%E5%AD%90%E5%BA%8F%E5%88%97-LIS-DP-DP-%E4%BA%8C%E5%88%86/" rel="next" title="最长上升子序列 LIS -- DP/DP+二分">
+      最长上升子序列 LIS -- DP/DP+二分 <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>
@@ -415,7 +415,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#算字节"><span class="nav-text">算字节</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#括号序列"><span class="nav-text">括号序列</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#边数"><span class="nav-text">边数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#字母排列"><span class="nav-text">字母排列</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#反倍数"><span class="nav-text">反倍数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#凯撒密码"><span class="nav-text">凯撒密码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#蛇形填数"><span class="nav-text">蛇形填数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#摆动序列-DP"><span class="nav-text">摆动序列 DP</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#植树"><span class="nav-text">植树</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#村庄通电-Kruskal-并查集"><span class="nav-text">村庄通电 Kruskal+并查集</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-算字节"><span class="nav-text">1. 算字节</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-括号序列"><span class="nav-text">2. 括号序列</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-边数"><span class="nav-text">3. 边数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-字母排列"><span class="nav-text">4. 字母排列</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-反倍数"><span class="nav-text">5. 反倍数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-凯撒密码"><span class="nav-text">6. 凯撒密码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-蛇形填数"><span class="nav-text">7. 蛇形填数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-摆动序列-DP"><span class="nav-text">8. 摆动序列 DP</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#9-植树"><span class="nav-text">9. 植树</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#10-村庄通电-Kruskal-并查集"><span class="nav-text">10. 村庄通电 Kruskal+并查集</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -429,7 +429,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">11</span>
+          <span class="site-state-item-count">12</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -442,7 +442,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">15</span>
+        <span class="site-state-item-count">16</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
