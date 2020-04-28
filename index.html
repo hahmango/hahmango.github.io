@@ -189,6 +189,114 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://hahmango.github.io/2020/04/28/%E5%90%84%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E4%B9%8B%E9%97%B4%E8%BF%9B%E8%A1%8C%E6%96%87%E4%BB%B6%E4%BC%A0%E8%BE%93/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="hahmango">
+      <meta itemprop="description" content="just keep">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="hahmango's blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/04/28/%E5%90%84%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E4%B9%8B%E9%97%B4%E8%BF%9B%E8%A1%8C%E6%96%87%E4%BB%B6%E4%BC%A0%E8%BE%93/" class="post-title-link" itemprop="url">各操作系统之间进行文件传输 SCP、WinSCP、rsync</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2020-04-28 09:45:56 / Modified: 11:50:35" itemprop="dateCreated datePublished" datetime="2020-04-28T09:45:56+08:00">2020-04-28</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="SCP"><a href="#SCP" class="headerlink" title="SCP"></a>SCP</h2><p>scp 命令用于 Linux / Unix 之间复制文件和目录，是基于 ssh 登陆进行安全的远程文件拷贝命令。</p>
+<h3 id="本地-gt-远程"><a href="#本地-gt-远程" class="headerlink" title="本地 -&gt; 远程"></a>本地 -&gt; 远程</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">scp local_file remote_username@remote_ip:remote_folder</span><br><span class="line"><span class="meta">#</span><span class="bash"> 执行后需要输入对应用户的密码，指定了远程的目录路径</span></span><br><span class="line">scp local_file remote_username@remote_ip:remote_file</span><br><span class="line"><span class="meta">#</span><span class="bash"> 执行后需要输入对应用户的密码，指定了远程的路径和文件名</span></span><br><span class="line">scp local_file remote_ip:remote_folder</span><br><span class="line"><span class="meta">#</span><span class="bash"> 执行后需要输入用户名和密码，指定了远程的目录路径</span></span><br><span class="line">scp local_file remote_ip:remote_file</span><br><span class="line"><span class="meta">#</span><span class="bash"> 执行后需要输入用户名和密码，，指定了远程的路径和文件名</span></span><br></pre></td></tr></table></figure>
+<h3 id="远程-gt-本地"><a href="#远程-gt-本地" class="headerlink" title="远程 -&gt; 本地"></a>远程 -&gt; 本地</h3><p>和上面的类似，只是调换了本地参数和远程参数的位置</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">scp remote_username@remote_ip:remote_folder local_file</span><br><span class="line">scp remote_username@remote_ip:remote_file local_file</span><br><span class="line">scp remote_ip:remote_folder local_file</span><br><span class="line">scp remote_ip:remote_file local_file</span><br></pre></td></tr></table></figure>
+<hr>
+<h2 id="WinSCP"><a href="#WinSCP" class="headerlink" title="WinSCP"></a>WinSCP</h2><p><a href="https://winscp.net/eng/download.php" target="_blank" rel="noopener">WinSCP Download</a></p>
+<p>WinSCP 是一款开源的 SFTP 客户端，WinSCP 除了SFTP，还支持SSH、SCP。</p>
+<p>WinSCP 有图形用户界面，直接拖拽就可以在 Windows 与 Linux 之间传输文件。</p>
+<hr>
+<h2 id="rsync"><a href="#rsync" class="headerlink" title="rsync"></a>rsync</h2><p><strong>rsync</strong>是Unix下的一款应用软件，它能<strong>同步</strong>更新两处计算机的文件与目录，并适当利用<strong>差分编码</strong>以减少数据传输量。rsync中的一项同类软件不常见的重要特性是每个目标的镜像只需发送一次。rsync可以拷贝／显示目录内容，以及拷贝文件，并可选压缩以及递归拷贝。</p>
+<p>在常驻模式（daemon mode）下，rsync 默认监听TCP端口873，以原生 rsync 传输协议或者透过远程 shell 如 RSH 或者 SSH 提供文件。所以 rsync 支持<strong>断点续传</strong>。</p>
+<p>rsync的撰写是用来取代rcp与SCP。rsync最早期程序的其中之一是用来实现透过rsync/ssh与标准Unix账号，从多重Unix客户端镜像或者备份到中央Unix服务器。与如Cron类似的调度应用程序配合，任何人皆可调度介于多台电脑与中央服务器间自动加密过、基于rsync的<strong>镜像备份</strong>。</p>
+<blockquote>
+<p>语法</p>
+</blockquote>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">rsync [OPTION]... SRC [SRC]... DEST</span><br><span class="line">rsync [OPTION]... SRC [SRC]... [USER@]HOST:DEST</span><br><span class="line">rsync [OPTION]... SRC [SRC]... [USER@]HOST::DEST</span><br><span class="line">rsync [OPTION]... SRC [SRC]... rsync://[USER@]HOST[:PORT]/DEST</span><br><span class="line">rsync [OPTION]... SRC</span><br><span class="line">rsync [OPTION]... [USER@]HOST:SRC [DEST]</span><br><span class="line">rsync [OPTION]... [USER@]HOST::SRC [DEST]</span><br><span class="line">rsync [OPTION]... rsync://[USER@]HOST[:PORT]/SRC [DEST]</span><br></pre></td></tr></table></figure>
+<p>rsync有六种不同的工作模式：</p>
+<ol>
+<li><p>拷贝本地文件。</p>
+<p>当SRC和DES路径信息都不包含有单个冒号”<code>:</code>“分隔符时就启动这种工作模式。如：<code>rsync -a /data /backup</code></p>
+</li>
+<li><p>使用一个远程shell程序（如rsh、ssh）来实现将本地机器的内容拷贝到远程机器。</p>
+<p>当DST路径地址包含单个冒号”<code>:</code>“分隔符时启动该模式。如：<code>rsync -avz *.c foo:src</code></p>
+</li>
+<li><p>使用一个远程shell程序（如rsh、ssh）来实现将远程机器的内容拷贝到本地机器。</p>
+<p>当SRC地址路径包含单个冒号”<code>:</code>“分隔符时启动该模式。如：<code>rsync -avz foo:src/bar /data</code></p>
+</li>
+<li><p>从远程rsync服务器中拷贝文件到本地机。</p>
+<p>当SRC路径信息包含”<code>::</code>“分隔符时启动该模式。如：<code>rsync -av root@192.168.0.1::file /databack</code></p>
+</li>
+<li><p>从本地机器拷贝文件到远程rsync服务器中。</p>
+<p>当DST路径信息包含”<code>::</code>“分隔符时启动该模式。如：<code>rsync -av /databack root@192.168.0.1::file</code></p>
+</li>
+<li><p>列远程机的文件列表。</p>
+<p>这类似于rsync传输，不过只要在命令中省略掉本地机信息即可。如：<code>rsync -v rsync://192.168.0.1/file</code></p>
+</li>
+</ol>
+<blockquote>
+<p>选项</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">-v, --verbose          详细模式输出。</span><br><span class="line">-q, --quiet            精简输出模式。</span><br><span class="line">-c, --checksum         打开校验开关，强制对文件传输进行校验。</span><br><span class="line">-a, --archive          归档模式，表示以递归方式传输文件，并保持所有文件属性，等于 -rlptgoD。</span><br><span class="line">-r, --recursive        对子目录以递归模式处理。</span><br><span class="line">-R, --relative         使用相对路径信息。</span><br><span class="line">-b, --backup           创建备份，也就是对于目的已经存在有同样的文件名时，将老的文件重新命名为 ~filename。可以使用 --suffix 选项来指定不同的备份文件前缀。</span><br><span class="line">--backup-dir           将备份文件（~filename）存放在在目录下。</span><br><span class="line">-suffix&#x3D;SUFFIX         定义备份文件前缀。</span><br><span class="line">-u, --update           仅仅进行更新，也就是跳过所有已经存在于 DST，并且文件时间晚于要备份的文件。（不覆盖更新的文件。）</span><br><span class="line">-l, --links            保留软链结。</span><br><span class="line">-L, --copy-links       想对待常规文件一样处理软链结。</span><br><span class="line">--copy-unsafe-links    仅仅拷贝指向 SRC 路径目录树以外的链结。</span><br><span class="line">--safe-links           忽略指向 SRC 路径目录树以外的链结。</span><br><span class="line">-H, --hard-links       保留硬链结。</span><br><span class="line">-p, --perms            保持文件权限。</span><br><span class="line">-o, --owner            保持文件属主信息。</span><br><span class="line">-g, --group            保持文件属组信息。</span><br><span class="line">-D, --devices          保持设备文件信息。</span><br><span class="line">-t, --times            保持文件时间信息。</span><br><span class="line">-S, --sparse           对稀疏文件进行特殊处理以节省 DST 的空间。</span><br><span class="line">-n, --dry-run          显示哪些文件将被传输（新增、修改和删除）。</span><br><span class="line">-W, --whole-file       拷贝文件，不进行增量检测。</span><br><span class="line">-x, --one-file-system  不要跨越文件系统边界。</span><br><span class="line">-B, --block-size&#x3D;SIZE  检验算法使用的块尺寸，默认是 700 字节。</span><br><span class="line">-e, --rsh&#x3D;COMMAND      指定使用 rsh, ssh 方式进行数据同步。</span><br><span class="line">--rsync-path&#x3D;PATH      指定远程服务器上的 rsync 命令所在路径信息。</span><br><span class="line">-C, --cvs-exclude      使用和 CVS 一样的方法自动忽略文件，用来排除那些不希望传输的文件。</span><br><span class="line">--existing             仅仅更新那些已经存在于 DST 的文件，而不备份那些新创建的文件。</span><br><span class="line">--delete               删除那些 DST 中 SRC 没有的文件。</span><br><span class="line">--delete-excluded      同样删除接收端那些被该选项指定排除的文件。</span><br><span class="line">--delete-after         传输结束以后再删除。</span><br><span class="line">--ignore-errors        即使出现 IO 错误也进行删除。</span><br><span class="line">--max-delete&#x3D;NUM       最多删除 NUM 个文件。</span><br><span class="line">--partial              保留那些因故没有完全传输的文件，以便实现断点续传。</span><br><span class="line">--force                强制删除目录，即使不为空。</span><br><span class="line">--numeric-ids          不将数字的用户和组 ID 匹配为用户名和组名。</span><br><span class="line">--timeout&#x3D;TIME         IP 超时时间，单位为秒。</span><br><span class="line">-I, --ignore-times     不跳过那些有同样的时间和长度的文件。</span><br><span class="line">--size-only            当决定是否要备份文件时，仅仅察看文件大小而不考虑文件时间。</span><br><span class="line">--modify-window&#x3D;NUM    决定文件是否时间相同时使用的时间戳窗口，默认为 0。</span><br><span class="line">-T --temp-dir&#x3D;DIR      在 DIR 中创建临时文件。</span><br><span class="line">--compare-dest&#x3D;DIR     同样比较 DIR 中的文件来决定是否需要备份。</span><br><span class="line">--progress             显示传输过程。</span><br><span class="line">-P                     等同于 -partial -progress。</span><br><span class="line">-z, --compress         对备份的文件在传输时进行压缩处理。</span><br><span class="line">--exclude&#x3D;PATTERN      指定排除不需要传输的文件模式。</span><br><span class="line">--include&#x3D;PATTERN      指定不排除而需要传输的文件模式。</span><br><span class="line">--exclude-from&#x3D;FILE    排除 FILE 中指定模式的文件。</span><br><span class="line">--include-from&#x3D;FILE    不排除 FILE 指定模式匹配的文件。</span><br><span class="line">--version              打印版本信息。</span><br><span class="line">--address              绑定到特定的地址。</span><br><span class="line">--config&#x3D;FILE          指定其他的配置文件，不使用默认的 rsyncd.conf 文件。</span><br><span class="line">--port&#x3D;PORT            指定其他的 rsync 服务端口。</span><br><span class="line">--blocking-io          对远程 shell 使用阻塞 IO。</span><br><span class="line">--stats                给出某些文件的传输状态。</span><br><span class="line">--log-format&#x3D;formAT    指定日志文件格式。</span><br><span class="line">--password-file&#x3D;FILE   从 FILE 中得到密码。</span><br><span class="line">--bwlimit&#x3D;KBPS         限制 I&#x2F;O 带宽，KBytes per second。</span><br><span class="line">-h, --help             显示帮助信息。</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="https://hahmango.github.io/2020/04/27/%E6%9C%80%E9%95%BF%E5%85%AC%E5%85%B1%E5%AD%90%E5%BA%8F%E5%88%97-LCS-DP-%E8%BD%ACLIS%E6%B1%82%E8%A7%A3/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -214,7 +322,7 @@
               <span class="post-meta-item-text">Posted on</span>
               
 
-              <time title="Created: 2020-04-27 21:22:23 / Modified: 22:19:55" itemprop="dateCreated datePublished" datetime="2020-04-27T21:22:23+08:00">2020-04-27</time>
+              <time title="Created: 2020-04-27 21:22:23 / Modified: 22:23:16" itemprop="dateCreated datePublished" datetime="2020-04-27T21:22:23+08:00">2020-04-27</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -885,94 +993,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://hahmango.github.io/2020/04/05/uva12563-Jin-Ge-Jin-Qu-hao-01%E8%83%8C%E5%8C%85-%E6%BB%9A%E5%8A%A8%E6%95%B0%E7%BB%84/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="hahmango">
-      <meta itemprop="description" content="just keep">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="hahmango's blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/04/05/uva12563-Jin-Ge-Jin-Qu-hao-01%E8%83%8C%E5%8C%85-%E6%BB%9A%E5%8A%A8%E6%95%B0%E7%BB%84/" class="post-title-link" itemprop="url">uva12563 Jin Ge Jin Qu hao 01背包+滚动数组</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2020-04-05 15:56:02" itemprop="dateCreated datePublished" datetime="2020-04-05T15:56:02+08:00">2020-04-05</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-04-06 10:54:08" itemprop="dateModified" datetime="2020-04-06T10:54:08+08:00">2020-04-06</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/DP/" itemprop="url" rel="index"><span itemprop="name">DP</span></a>
-                </span>
-                  , 
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/DP/%E5%A4%9A%E9%98%B6%E6%AE%B5%E5%86%B3%E7%AD%96%E9%97%AE%E9%A2%98/" itemprop="url" rel="index"><span itemprop="name">多阶段决策问题</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p><a href="https://vjudge.net/problem/UVA-12563#author=0" target="_blank" rel="noopener">uva12563 Jin Ge Jin Qu hao</a></p>
-<h4 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h4><p>(If you smiled when you see the title, this problem is for you ^_^)</p>
-<p>For those who don’t know KTV, see: <a href="http://en.wikipedia.org/wiki/Karaoke_box" target="_blank" rel="noopener">http://en.wikipedia.org/wiki/Karaoke_box</a></p>
-<p>There is one very popular song called Jin Ge Jin Qu(). It is a mix of 37 songs, and is extremely long (11 minutes and 18 seconds) — I know that there are Jin Ge Jin Qu II and III, and some other unofficial versions. But in this problem please forget about them.
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/04/05/uva12563-Jin-Ge-Jin-Qu-hao-01%E8%83%8C%E5%8C%85-%E6%BB%9A%E5%8A%A8%E6%95%B0%E7%BB%84/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1042,20 +1062,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">12</span>
+          <span class="site-state-item-count">13</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-count">6</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">16</span>
+        <span class="site-state-item-count">19</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
