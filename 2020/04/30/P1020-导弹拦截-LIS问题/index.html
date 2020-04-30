@@ -22,25 +22,22 @@
     var CONFIG = {"hostname":"hahmango.github.io","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="最长公共子序列问题(LCS)给两个序列A和B，求长度最大的公共子序列。例如1, 5, 2, 6, 8, 7和2, 3, 5, 6, 9, 8, 4的最长公共子序列为5, 6, 8(另一个解是2, 6, 8)。 洛谷 P1439 【模板】最长公共子序列">
+  <meta name="description" content="P1020 导弹拦截 题目描述某国为了防御敌国的导弹袭击，发展出一种导弹拦截系统。但是这种导弹拦截系统有一个缺陷：虽然它的第一发炮弹能够到达任意的高度，但是以后每一发炮弹都不能高于前一发的高度。某天，雷达捕捉到敌国的导弹来袭。由于该系统还在试用阶段，所以只有一套系统，因此有可能不能拦截所有的导弹。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="最长公共子序列 LCS -- DP&#x2F;转LIS求解">
-<meta property="og:url" content="https://hahmango.github.io/2020/04/27/%E6%9C%80%E9%95%BF%E5%85%AC%E5%85%B1%E5%AD%90%E5%BA%8F%E5%88%97-LCS-DP-%E8%BD%ACLIS%E6%B1%82%E8%A7%A3/index.html">
+<meta property="og:title" content="P1020 导弹拦截 LIS问题">
+<meta property="og:url" content="https://hahmango.github.io/2020/04/30/P1020-%E5%AF%BC%E5%BC%B9%E6%8B%A6%E6%88%AA-LIS%E9%97%AE%E9%A2%98/index.html">
 <meta property="og:site_name" content="hahmango&#39;s blog">
-<meta property="og:description" content="最长公共子序列问题(LCS)给两个序列A和B，求长度最大的公共子序列。例如1, 5, 2, 6, 8, 7和2, 3, 5, 6, 9, 8, 4的最长公共子序列为5, 6, 8(另一个解是2, 6, 8)。 洛谷 P1439 【模板】最长公共子序列">
+<meta property="og:description" content="P1020 导弹拦截 题目描述某国为了防御敌国的导弹袭击，发展出一种导弹拦截系统。但是这种导弹拦截系统有一个缺陷：虽然它的第一发炮弹能够到达任意的高度，但是以后每一发炮弹都不能高于前一发的高度。某天，雷达捕捉到敌国的导弹来袭。由于该系统还在试用阶段，所以只有一套系统，因此有可能不能拦截所有的导弹。">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2020-04-27T13:22:23.000Z">
-<meta property="article:modified_time" content="2020-04-27T14:23:16.245Z">
+<meta property="article:published_time" content="2020-04-30T01:37:52.000Z">
+<meta property="article:modified_time" content="2020-04-30T02:16:23.170Z">
 <meta property="article:author" content="hahmango">
 <meta property="article:tag" content="DP">
 <meta property="article:tag" content="LIS">
 <meta property="article:tag" content="洛谷">
-<meta property="article:tag" content="二分">
-<meta property="article:tag" content="滚动数组">
-<meta property="article:tag" content="LCS">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="https://hahmango.github.io/2020/04/27/%E6%9C%80%E9%95%BF%E5%85%AC%E5%85%B1%E5%AD%90%E5%BA%8F%E5%88%97-LCS-DP-%E8%BD%ACLIS%E6%B1%82%E8%A7%A3/">
+<link rel="canonical" href="https://hahmango.github.io/2020/04/30/P1020-%E5%AF%BC%E5%BC%B9%E6%8B%A6%E6%88%AA-LIS%E9%97%AE%E9%A2%98/">
 
 
 <script id="page-configurations">
@@ -53,7 +50,7 @@
   };
 </script>
 
-  <title>最长公共子序列 LCS -- DP/转LIS求解 | hahmango's blog</title>
+  <title>P1020 导弹拦截 LIS问题 | hahmango's blog</title>
   
 
 
@@ -196,7 +193,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://hahmango.github.io/2020/04/27/%E6%9C%80%E9%95%BF%E5%85%AC%E5%85%B1%E5%AD%90%E5%BA%8F%E5%88%97-LCS-DP-%E8%BD%ACLIS%E6%B1%82%E8%A7%A3/">
+    <link itemprop="mainEntityOfPage" href="https://hahmango.github.io/2020/04/30/P1020-%E5%AF%BC%E5%BC%B9%E6%8B%A6%E6%88%AA-LIS%E9%97%AE%E9%A2%98/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -209,7 +206,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          最长公共子序列 LCS -- DP/转LIS求解
+          P1020 导弹拦截 LIS问题
         </h1>
 
         <div class="post-meta">
@@ -220,7 +217,7 @@
               <span class="post-meta-item-text">Posted on</span>
               
 
-              <time title="Created: 2020-04-27 21:22:23 / Modified: 22:23:16" itemprop="dateCreated datePublished" datetime="2020-04-27T21:22:23+08:00">2020-04-27</time>
+              <time title="Created: 2020-04-30 09:37:52 / Modified: 10:16:23" itemprop="dateCreated datePublished" datetime="2020-04-30T09:37:52+08:00">2020-04-30</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -247,19 +244,14 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="最长公共子序列问题-LCS"><a href="#最长公共子序列问题-LCS" class="headerlink" title="最长公共子序列问题(LCS)"></a>最长公共子序列问题(LCS)</h2><p>给两个序列A和B，求长度最大的公共子序列。例如1, 5, 2, 6, 8, 7和2, 3, 5, 6, 9, 8, 4的最长公共子序列为5, 6, 8(另一个解是2, 6, 8)。</p>
-<p><a href="https://www.luogu.com.cn/problem/P1439" target="_blank" rel="noopener">洛谷 P1439 【模板】最长公共子序列</a><a id="more"></a></p>
-<h3 id="1-二维DP-滚动数组"><a href="#1-二维DP-滚动数组" class="headerlink" title="1. 二维DP+滚动数组"></a>1. 二维DP+滚动数组</h3><p>对于这类问题，可以设<code>d[i][j]</code>为 A 中<code>1~i</code>和 B 中<code>1~j</code>的序列的最长公共子序列的长度，双重循环，每次都遍历一遍 B 的所有数，当<code>A[i]=B[j]</code>时，<code>d[i][j] = d[i-1][j-1]+1</code>；否则，<code>d[i][j] = max(d[i-1][j], d[i][j-1])</code>。<br>由于是线性结构，这个可以用滚动数组优化存储空间。而时间复杂度是 $O(n^2)$。</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn = <span class="number">1e5</span> + <span class="number">10</span>;</span><br><span class="line"><span class="keyword">int</span> a[maxn], b[maxn], d[<span class="number">2</span>][maxn];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;F</span><br><span class="line">  <span class="keyword">int</span> n;</span><br><span class="line">  <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;n);</span><br><span class="line">  <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>; i&lt;=n; i++)</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;a[i]);</span><br><span class="line">  <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>; i&lt;=n; i++)</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;b[i]);</span><br><span class="line">  <span class="keyword">int</span> t = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>; i&lt;=n; i++) &#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">1</span>; j&lt;=n; j++) &#123;</span><br><span class="line">      <span class="keyword">if</span>(a[i] == b[j]) d[t][j] = d[t^<span class="number">1</span>][j<span class="number">-1</span>] + <span class="number">1</span>;</span><br><span class="line">      <span class="keyword">else</span> d[t][j] = <span class="built_in">max</span>(d[t^<span class="number">1</span>][j], d[t][j<span class="number">-1</span>]);</span><br><span class="line">    &#125;</span><br><span class="line">    t ^= <span class="number">1</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="built_in">printf</span>(<span class="string">"%d"</span>, d[t^<span class="number">1</span>][n]);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<hr>
-<h3 id="2-转-LIS-求解"><a href="#2-转-LIS-求解" class="headerlink" title="2. 转 LIS 求解"></a>2. 转 LIS 求解</h3><p>对于 LCS，可以根据 A 序列的值重新映射一下 B 序列的值，将 A 序列变成一个递增的序列，求 LCS 就转变成一个在 B 上求 LIS 的问题。</p>
-<p>这么说可能很难理解，来举个例子。<br>例如有 $A: 1, 3, 2, 5, 4$，$B: 1, 2, 3, 4, 5$，可以将其重新标一下号：</p>
-<script type="math/tex; mode=display">
-A: a, b, c, d, e \\
-B: a, c, b, e, d</script><p>显然对于这样两个序列来说，由于 A 的序列是递增的，那么 A 和 B 的 LCS 在 B 中必然是递增的，这就变成了一个在 B 上求 LIS 的问题了。</p>
-<p>先处理映射，然后直接套用 LIS 的算法即可，使用 LIS 的 <strong>DP+二分</strong>的算法，时间复杂度为 $O(nlog(n))$。</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn = <span class="number">1e5</span> + <span class="number">10</span>;</span><br><span class="line"><span class="keyword">int</span> f[maxn], d[maxn], a[maxn];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;F</span><br><span class="line">  <span class="keyword">int</span> n, u, len = <span class="number">1</span>;</span><br><span class="line">  <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;n);</span><br><span class="line">  <span class="keyword">if</span>(n &lt;= <span class="number">1</span>) <span class="keyword">return</span> n;</span><br><span class="line">  rep(i, <span class="number">1</span>, n) &#123;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;u);</span><br><span class="line">    f[u] = i; <span class="comment">// 重新映射 A 的值</span></span><br><span class="line">  &#125;</span><br><span class="line">  rep(i, <span class="number">1</span>, n) &#123;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;u);</span><br><span class="line">    a[i] = f[u]; <span class="comment">// 重新映射 B 的值</span></span><br><span class="line">  &#125;</span><br><span class="line">  d[<span class="number">1</span>] = a[<span class="number">1</span>];</span><br><span class="line">  rep(i, <span class="number">2</span>, n) &#123; <span class="comment">// LIS DP+二分求解</span></span><br><span class="line">    <span class="keyword">if</span>(a[i] &gt; d[len]) &#123; d[++len] = a[i]; <span class="keyword">continue</span>; &#125;</span><br><span class="line">    <span class="keyword">int</span> l=<span class="number">1</span>, r=len, m;</span><br><span class="line">    <span class="keyword">while</span>(l&lt;r) &#123;</span><br><span class="line">      m = (l + r) &gt;&gt; <span class="number">1</span>;</span><br><span class="line">      <span class="keyword">if</span>(a[i] &lt; d[m]) r = m;</span><br><span class="line">      <span class="keyword">else</span> l = m+<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    d[l] = a[i];</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="built_in">printf</span>(<span class="string">"%d"</span>, len);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
+        <p><a href="https://www.luogu.com.cn/problem/P1020" target="_blank" rel="noopener">P1020 导弹拦截</a></p>
+<h4 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h4><p>某国为了防御敌国的导弹袭击，发展出一种导弹拦截系统。但是这种导弹拦截系统有一个缺陷：虽然它的第一发炮弹能够到达任意的高度，但是以后每一发炮弹都不能高于前一发的高度。某天，雷达捕捉到敌国的导弹来袭。由于该系统还在试用阶段，所以只有一套系统，因此有可能不能拦截所有的导弹。<a id="more"></a></p>
+<p>输入导弹依次飞来的高度（雷达给出的高度数据是 ≤ 50000 的正整数），计算这套系统最多能拦截多少导弹，如果要拦截所有导弹最少要配备多少套这种导弹拦截系统。</p>
+<h4 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式"></a>输入格式</h4><p>1行，若干个整数（个数 ≤100000）</p>
+<h4 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式"></a>输出格式</h4><p>2行，每行一个整数，第一个数字表示这套系统最多能拦截多少导弹，第二个数字表示如果要拦截所有导弹最少要配备多少套这种导弹拦截系统。</p>
+<h4 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h4><p>题意第一问就是从给定的序列中求出<strong>最长不上升子序列</strong>的长度，这个就是最多能拦截的导弹的个数。第二问其实本质就是求一个<strong>最长上升子序列</strong>的长度，这个可以用反证法证明，我们假设最少要配备 $K$ 套拦截系统，将他们各自拦截的导弹分为 $K$ 组，并且按照他们拦截的最后一个导弹的出现顺序进行排序，他们末尾的导弹则为 $A_1, A_2,\ldots , A_k$， 若他们末尾的导弹不是一个最长上升子序列，则说明存在 $A_i, A_j$ ，$i &lt; j$ 且 $A_i \geq A_j$， 这显然是不可能的，因为 $A_i \geq A_j$，且 $A_j$ 在 $A_i$ 后面出现，则 $A_j$ 必然能被 $A_i$ 那套系统打掉，所以他们就是一个最长上升子序列。</p>
+<p>然后就是套用 LIS 的 DP+二分求解，将<code>d[i]</code>的<code>i</code>定义为子序列的长度，而<strong><code>d[i]</code></strong> 存放子序列长度为<code>i</code>的序列的末尾的数，对于第一问的最长不上升子序列，查看长度为<code>len</code>的子序列的尾数是否大于或等于当前的数，如果是，则说明可以接到他这个子序列上；如果小于，则二分查找，直到找到一个刚好比这个数小一点的数，将其替换。对于第二问的也是同理，只是判断大于小于需要变一下。时间复杂度为 $O(nlog(n))$。</p>
+<h4 id="DP-二分"><a href="#DP-二分" class="headerlink" title="DP+二分"></a>DP+二分</h4><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn = <span class="number">1e5</span> + <span class="number">10</span>;</span><br><span class="line"><span class="keyword">int</span> dd[maxn], du[maxn], a[maxn];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;F</span><br><span class="line">  <span class="keyword">int</span> c, n=<span class="number">0</span>, m, t=<span class="number">0</span>, len1=<span class="number">1</span>, len2=<span class="number">1</span>;</span><br><span class="line">  <span class="keyword">while</span>(<span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;c) == <span class="number">1</span>)</span><br><span class="line">    a[++n] = c;</span><br><span class="line">  dd[len1] = a[<span class="number">1</span>]; du[len2] = a[<span class="number">1</span>];</span><br><span class="line">  rep(i, <span class="number">2</span>, n) &#123;</span><br><span class="line">    <span class="keyword">if</span>(dd[len1] &gt;= a[i]) dd[++len1] = a[i];</span><br><span class="line">    <span class="keyword">else</span> &#123;</span><br><span class="line">      <span class="keyword">int</span> l=<span class="number">1</span>, r=len1, m;</span><br><span class="line">      <span class="keyword">while</span>(l &lt; r) &#123;</span><br><span class="line">        m = (l+r) &gt;&gt; <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">if</span>(dd[m] &lt; a[i]) r = m;</span><br><span class="line">        <span class="keyword">else</span> l = m+<span class="number">1</span>;</span><br><span class="line">      &#125;</span><br><span class="line">      dd[l] = a[i];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(du[len2] &lt; a[i]) du[++len2] = a[i];</span><br><span class="line">    <span class="keyword">else</span> &#123;</span><br><span class="line">      <span class="keyword">int</span> l=<span class="number">1</span>, r=len2, m;</span><br><span class="line">      <span class="keyword">while</span>(l &lt; r) &#123;</span><br><span class="line">        m = (l + r) &gt;&gt; <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">if</span>(a[i] &lt;= du[m]) r = m;</span><br><span class="line">        <span class="keyword">else</span> l = m+<span class="number">1</span>;</span><br><span class="line">      &#125;</span><br><span class="line">      du[l] = a[i];</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="built_in">printf</span>(<span class="string">"%d\n%d"</span>, len1, len2);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
     </div>
 
     
@@ -271,9 +263,6 @@ B: a, c, b, e, d</script><p>显然对于这样两个序列来说，由于 A 的�
               <a href="/tags/DP/" rel="tag"># DP</a>
               <a href="/tags/LIS/" rel="tag"># LIS</a>
               <a href="/tags/%E6%B4%9B%E8%B0%B7/" rel="tag"># 洛谷</a>
-              <a href="/tags/%E4%BA%8C%E5%88%86/" rel="tag"># 二分</a>
-              <a href="/tags/%E6%BB%9A%E5%8A%A8%E6%95%B0%E7%BB%84/" rel="tag"># 滚动数组</a>
-              <a href="/tags/LCS/" rel="tag"># LCS</a>
           </div>
 
         
@@ -282,13 +271,10 @@ B: a, c, b, e, d</script><p>显然对于这样两个序列来说，由于 A 的�
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2020/04/27/%E6%9C%80%E9%95%BF%E4%B8%8A%E5%8D%87%E5%AD%90%E5%BA%8F%E5%88%97-LIS-DP-DP-%E4%BA%8C%E5%88%86/" rel="prev" title="最长上升子序列 LIS -- DP/DP+二分">
-      <i class="fa fa-chevron-left"></i> 最长上升子序列 LIS -- DP/DP+二分
+    <a href="/2020/04/29/uva1626-Brackets-sequence-%E7%BA%BF%E6%80%A7%E7%BB%93%E6%9E%84DP/" rel="prev" title="uva1626 Brackets sequence 线性结构DP">
+      <i class="fa fa-chevron-left"></i> uva1626 Brackets sequence 线性结构DP
     </a></div>
-      <div class="post-nav-item">
-    <a href="/2020/04/28/%E5%90%84%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E4%B9%8B%E9%97%B4%E8%BF%9B%E8%A1%8C%E6%96%87%E4%BB%B6%E4%BC%A0%E8%BE%93/" rel="next" title="各操作系统之间进行文件传输 SCP、WinSCP、rsync">
-      各操作系统之间进行文件传输 SCP、WinSCP、rsync <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -347,7 +333,7 @@ B: a, c, b, e, d</script><p>显然对于这样两个序列来说，由于 A 的�
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#最长公共子序列问题-LCS"><span class="nav-text">最长公共子序列问题(LCS)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-二维DP-滚动数组"><span class="nav-text">1. 二维DP+滚动数组</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-转-LIS-求解"><span class="nav-text">2. 转 LIS 求解</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#题目描述"><span class="nav-text">题目描述</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#输入格式"><span class="nav-text">输入格式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#输出格式"><span class="nav-text">输出格式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#分析"><span class="nav-text">分析</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#DP-二分"><span class="nav-text">DP+二分</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -479,59 +465,6 @@ B: a, c, b, e, d</script><p>显然对于这样两个序列来说，由于 A 的�
   
 
   
-      
-
-<script>
-  if (typeof MathJax === 'undefined') {
-    window.MathJax = {
-      loader: {
-        source: {
-          '[tex]/amsCd': '[tex]/amscd',
-          '[tex]/AMScd': '[tex]/amscd'
-        }
-      },
-      tex: {
-        inlineMath: {'[+]': [['$', '$']]},
-        tags: 'ams'
-      },
-      options: {
-        renderActions: {
-          findScript: [10, doc => {
-            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
-              const display = !!node.type.match(/; *mode=display/);
-              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
-              const text = document.createTextNode('');
-              node.parentNode.replaceChild(text, node);
-              math.start = {node: text, delim: '', n: 0};
-              math.end = {node: text, delim: '', n: 0};
-              doc.math.push(math);
-            });
-          }, '', false],
-          insertedScript: [200, () => {
-            document.querySelectorAll('mjx-container').forEach(node => {
-              let target = node.parentNode;
-              if (target.nodeName.toLowerCase() === 'li') {
-                target.parentNode.classList.add('has-jax');
-              }
-            });
-          }, '', false]
-        }
-      }
-    };
-    (function () {
-      var script = document.createElement('script');
-      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
-      script.defer = true;
-      document.head.appendChild(script);
-    })();
-  } else {
-    MathJax.startup.document.state(0);
-    MathJax.texReset();
-    MathJax.typeset();
-  }
-</script>
-
-    
 
   
 
