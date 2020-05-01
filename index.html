@@ -22,14 +22,14 @@
     var CONFIG = {"hostname":"hahmango.github.io","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="just keep">
+  <meta name="description" content="keep recording my algorithm daily">
 <meta property="og:type" content="website">
-<meta property="og:title" content="hahmango&#39;s blog">
+<meta property="og:title" content="xiaowenlong&#39;s blog">
 <meta property="og:url" content="https://hahmango.github.io/index.html">
-<meta property="og:site_name" content="hahmango&#39;s blog">
-<meta property="og:description" content="just keep">
+<meta property="og:site_name" content="xiaowenlong&#39;s blog">
+<meta property="og:description" content="keep recording my algorithm daily">
 <meta property="og:locale" content="en_US">
-<meta property="article:author" content="hahmango">
+<meta property="article:author" content="xiaowenlong">
 <meta property="article:tag" content="uva">
 <meta property="article:tag" content="algorithm">
 <meta name="twitter:card" content="summary">
@@ -47,7 +47,7 @@
   };
 </script>
 
-  <title>hahmango's blog</title>
+  <title>xiaowenlong's blog</title>
   
 
 
@@ -98,7 +98,7 @@
 
     <a href="/" class="brand" rel="start">
       <span class="logo-line-before"><i></i></span>
-      <h1 class="site-title">hahmango's blog</h1>
+      <h1 class="site-title">xiaowenlong's blog</h1>
       <span class="logo-line-after"><i></i></span>
     </a>
   </div>
@@ -189,16 +189,96 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://hahmango.github.io/2020/05/01/P1280-%E5%B0%BC%E5%85%8B%E7%9A%84%E4%BB%BB%E5%8A%A1-%E7%BA%BF%E6%80%A7%E7%BB%93%E6%9E%84DP/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="xiaowenlong">
+      <meta itemprop="description" content="keep recording my algorithm daily">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="xiaowenlong's blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/05/01/P1280-%E5%B0%BC%E5%85%8B%E7%9A%84%E4%BB%BB%E5%8A%A1-%E7%BA%BF%E6%80%A7%E7%BB%93%E6%9E%84DP/" class="post-title-link" itemprop="url">P1280 尼克的任务 线性结构DP</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2020-05-01 16:07:39 / Modified: 16:51:17" itemprop="dateCreated datePublished" datetime="2020-05-01T16:07:39+08:00">2020-05-01</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/DP/" itemprop="url" rel="index"><span itemprop="name">DP</span></a>
+                </span>
+                  , 
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/DP/%E7%BA%BF%E6%80%A7%E7%BB%93%E6%9E%84%E4%B8%8A%E7%9A%84DP/" itemprop="url" rel="index"><span itemprop="name">线性结构上的DP</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p><a href="https://www.luogu.com.cn/problem/P1280" target="_blank" rel="noopener">P1280 尼克的任务</a></p>
+<h4 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h4><p>尼克每天上班之前都连接上英特网，接收他的上司发来的邮件，这些邮件包含了尼克主管的部门当天要完成的全部任务，每个任务由一个开始时刻与一个持续时间构成。</p>
+<p>尼克的一个工作日为 n 分钟，从第 1 分钟开始到第 n 分钟结束。当尼克到达单位后他就开始干活，公司一共有 k 个任务需要完成。如果在同一时刻有多个任务需要完成，尼克可以任选其中的一个来做，而其余的则由他的同事完成，反之如果只有一个任务，则该任务必需由尼克去完成，假如某些任务开始时刻尼克正在工作，则这些任务也由尼克的同事完成。如果某任务于第 p 分钟开始，持续时间为 t 分钟，则该任务将在第 (p+t−1) 分钟结束。</p>
+<p>写一个程序计算尼克应该如何选取任务，才能获得最大的空暇时间。</p>
+<h4 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式"></a>输入格式</h4><p>输入数据第一行含两个用空格隔开的整数 n 和 k。</p>
+<p>接下来共有 k 行，每一行有两个用空格隔开的整数 p 和 t，表示该任务从第 p 分钟开始，持续时间为 t 分钟。</p>
+<h4 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式"></a>输出格式</h4><p>输出文件仅一行，包含一个整数，表示尼克可能获得的最大空暇时间。</p>
+<h4 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h4><p>题意是给定一些任务，如何选取任务来获得最大的空闲时间<del>（还不赶快学了去摸鱼）</del>。由于是求空闲时间，所以可以将<code>1~n</code>的每一分钟都拆分成一个<strong>状态</strong>，设<code>d[i]</code> 为从时间 i 开始，最多能获得多少空闲时间。一开始可能会觉得如何判断当前选取的任务是否与之前选择的任务时间上有重叠不太好处理，我们可以对所有任务按开始时间排个序，然后对时间进行逆序遍历，仅当当前时间点有任务开始，才进行决策，<strong>状态转移</strong>方程为 $d(i) = max(d(i),~ d(i+T_i-1))$，若当前时间点没有任务开始，则 $d(i) = d(i+1)+1$，由于是按开始时间来排序并决策，所以不会影响到前面的小的时间点，所以保证了<strong>无后效性</strong>，并且不需要判断选取的两个任务是否有时间冲突（状态转移保证了不会有冲突）。这里用桶存储了某个时间点开始任务的个数，并且用一个<code>p</code>指针记录从哪开始访问任务。排序是 $O(nlog(n))$ 的时间复杂度，DP 的过程是线性的 $O(n + k)$，所以<strong>时间复杂度</strong>为 $O(nlog(n))$。</p>
+<h4 id="DP"><a href="#DP" class="headerlink" title="DP"></a>DP</h4><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">node</span> &#123;</span></span><br><span class="line">  <span class="keyword">int</span> st, t;</span><br><span class="line">  <span class="keyword">bool</span> <span class="keyword">operator</span> &lt; (<span class="keyword">const</span> node &amp;r) <span class="keyword">const</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> st &lt; r.st;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn = <span class="number">1e4</span> + <span class="number">10</span>;</span><br><span class="line">node a[maxn];</span><br><span class="line"><span class="keyword">int</span> d[maxn], c[maxn]; <span class="comment">// d: 以时间 i 开始，最多能获得多少空闲时间； c: 以 i 为开始时间的任务数</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;F</span><br><span class="line">  <span class="keyword">int</span> n, k, st, t;</span><br><span class="line">  <span class="built_in">scanf</span>(<span class="string">"%d%d"</span>, &amp;n, &amp;k);</span><br><span class="line">  rep(i, <span class="number">1</span>, k) &#123;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d%d"</span>, &amp;st, &amp;t);</span><br><span class="line">    a[i].st = st; a[i].t = t;</span><br><span class="line">    c[st]++;</span><br><span class="line">  &#125;</span><br><span class="line">  sort(a+<span class="number">1</span>, a+k+<span class="number">1</span>);</span><br><span class="line">  <span class="keyword">int</span> p = k; <span class="comment">// 记录从哪开始访问任务，1~p 为还未访问的任务</span></span><br><span class="line">  per(i, n, <span class="number">1</span>) &#123;</span><br><span class="line">    <span class="keyword">if</span>(c[i] == <span class="number">0</span>) d[i] = d[i+<span class="number">1</span>] + <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">else</span> &#123;</span><br><span class="line">      per(j, c[i], <span class="number">1</span>)</span><br><span class="line">        d[i] = <span class="built_in">max</span>(d[i], d[i + a[p--].t]);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="built_in">printf</span>(<span class="string">"%d"</span>, d[<span class="number">1</span>]);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="https://hahmango.github.io/2020/04/30/P1020-%E5%AF%BC%E5%BC%B9%E6%8B%A6%E6%88%AA-LIS%E9%97%AE%E9%A2%98/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="hahmango">
-      <meta itemprop="description" content="just keep">
+      <meta itemprop="name" content="xiaowenlong">
+      <meta itemprop="description" content="keep recording my algorithm daily">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="hahmango's blog">
+      <meta itemprop="name" content="xiaowenlong's blog">
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
@@ -273,12 +353,12 @@
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="hahmango">
-      <meta itemprop="description" content="just keep">
+      <meta itemprop="name" content="xiaowenlong">
+      <meta itemprop="description" content="keep recording my algorithm daily">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="hahmango's blog">
+      <meta itemprop="name" content="xiaowenlong's blog">
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
@@ -362,12 +442,12 @@
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="hahmango">
-      <meta itemprop="description" content="just keep">
+      <meta itemprop="name" content="xiaowenlong">
+      <meta itemprop="description" content="keep recording my algorithm daily">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="hahmango's blog">
+      <meta itemprop="name" content="xiaowenlong's blog">
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
@@ -389,8 +469,17 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-04-29 16:00:11" itemprop="dateModified" datetime="2020-04-29T16:00:11+08:00">2020-04-29</time>
+                <time title="Modified: 2020-04-30 10:21:32" itemprop="dateModified" datetime="2020-04-30T10:21:32+08:00">2020-04-30</time>
               </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%B7%A5%E5%85%B7/" itemprop="url" rel="index"><span itemprop="name">工具</span></a>
+                </span>
+            </span>
 
           
 
@@ -434,12 +523,12 @@
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="hahmango">
-      <meta itemprop="description" content="just keep">
+      <meta itemprop="name" content="xiaowenlong">
+      <meta itemprop="description" content="keep recording my algorithm daily">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="hahmango's blog">
+      <meta itemprop="name" content="xiaowenlong's blog">
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
@@ -520,12 +609,12 @@
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="hahmango">
-      <meta itemprop="description" content="just keep">
+      <meta itemprop="name" content="xiaowenlong">
+      <meta itemprop="description" content="keep recording my algorithm daily">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="hahmango's blog">
+      <meta itemprop="name" content="xiaowenlong's blog">
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
@@ -595,12 +684,12 @@
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="hahmango">
-      <meta itemprop="description" content="just keep">
+      <meta itemprop="name" content="xiaowenlong">
+      <meta itemprop="description" content="keep recording my algorithm daily">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="hahmango's blog">
+      <meta itemprop="name" content="xiaowenlong's blog">
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
@@ -675,12 +764,12 @@
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="hahmango">
-      <meta itemprop="description" content="just keep">
+      <meta itemprop="name" content="xiaowenlong">
+      <meta itemprop="description" content="keep recording my algorithm daily">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="hahmango's blog">
+      <meta itemprop="name" content="xiaowenlong's blog">
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
@@ -754,12 +843,12 @@
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="hahmango">
-      <meta itemprop="description" content="just keep">
+      <meta itemprop="name" content="xiaowenlong">
+      <meta itemprop="description" content="keep recording my algorithm daily">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="hahmango's blog">
+      <meta itemprop="name" content="xiaowenlong's blog">
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
@@ -835,12 +924,12 @@
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="hahmango">
-      <meta itemprop="description" content="just keep">
+      <meta itemprop="name" content="xiaowenlong">
+      <meta itemprop="description" content="keep recording my algorithm daily">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="hahmango's blog">
+      <meta itemprop="name" content="xiaowenlong's blog">
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
@@ -890,75 +979,6 @@
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2020/04/13/2020-Wuhan-University-Collegiate-Programming-Contest-Preliminary-Contest-DIY-Masks-at-Home/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://hahmango.github.io/2020/04/13/2020-Wuhan-University-Collegiate-Programming-Contest-Preliminary-Contest-E-Yu-is-a-Brutal-Creature/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="hahmango">
-      <meta itemprop="description" content="just keep">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="hahmango's blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/04/13/2020-Wuhan-University-Collegiate-Programming-Contest-Preliminary-Contest-E-Yu-is-a-Brutal-Creature/" class="post-title-link" itemprop="url">2020 Wuhan University Collegiate Programming Contest (Preliminary Contest)--E Yu is a Brutal Creature</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-              
-
-              <time title="Created: 2020-04-13 19:32:36 / Modified: 19:48:43" itemprop="dateCreated datePublished" datetime="2020-04-13T19:32:36+08:00">2020-04-13</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p><a href="https://ac.nowcoder.com/acm/contest/5166/E" target="_blank" rel="noopener">E Yu is a Brutal Creature</a></p>
-<h4 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h4><p>题意是找出 0 到 n 之间所有满足 $\frac{n^2+1}{n+1}$ 为整数的数的个数。由于</p>
-<script type="math/tex; mode=display">
-\frac{n^2+1}{n+1}=\frac{n^2+n}{n+1}-\frac{n-1}{n+1}=n-\frac{n-1}{n+1}</script><p>显然，只有当 $n=0$ 或 $1$ 的时候，式子才会是整数，所以答案是 $n-1$。
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/04/13/2020-Wuhan-University-Collegiate-Programming-Contest-Preliminary-Contest-E-Yu-is-a-Brutal-Creature/#more" rel="contents">
                 Read more &raquo;
               </a>
             </div>
@@ -1039,22 +1059,22 @@
 
       <div class="site-overview-wrap sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-  <p class="site-author-name" itemprop="name">hahmango</p>
-  <div class="site-description" itemprop="description">just keep</div>
+  <p class="site-author-name" itemprop="name">xiaowenlong</p>
+  <div class="site-description" itemprop="description">keep recording my algorithm daily</div>
 </div>
 <div class="site-state-wrap motion-element">
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">17</span>
+          <span class="site-state-item-count">18</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-count">7</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
@@ -1096,7 +1116,7 @@
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
-  <span class="author" itemprop="copyrightHolder">hahmango</span>
+  <span class="author" itemprop="copyrightHolder">xiaowenlong</span>
 </div>
 <!--
   <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a>
