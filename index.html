@@ -212,10 +212,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              
 
-              <time title="Created: 2020-05-01 16:07:39 / Modified: 16:51:17" itemprop="dateCreated datePublished" datetime="2020-05-01T16:07:39+08:00">2020-05-01</time>
+              <time title="Created: 2020-05-01 16:07:39" itemprop="dateCreated datePublished" datetime="2020-05-01T16:07:39+08:00">2020-05-01</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-05-02 12:06:50" itemprop="dateModified" datetime="2020-05-02T12:06:50+08:00">2020-05-02</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -242,15 +248,15 @@
 
       
           <p><a href="https://www.luogu.com.cn/problem/P1280" target="_blank" rel="noopener">P1280 尼克的任务</a></p>
-<h4 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h4><p>尼克每天上班之前都连接上英特网，接收他的上司发来的邮件，这些邮件包含了尼克主管的部门当天要完成的全部任务，每个任务由一个开始时刻与一个持续时间构成。</p>
-<p>尼克的一个工作日为 n 分钟，从第 1 分钟开始到第 n 分钟结束。当尼克到达单位后他就开始干活，公司一共有 k 个任务需要完成。如果在同一时刻有多个任务需要完成，尼克可以任选其中的一个来做，而其余的则由他的同事完成，反之如果只有一个任务，则该任务必需由尼克去完成，假如某些任务开始时刻尼克正在工作，则这些任务也由尼克的同事完成。如果某任务于第 p 分钟开始，持续时间为 t 分钟，则该任务将在第 (p+t−1) 分钟结束。</p>
-<p>写一个程序计算尼克应该如何选取任务，才能获得最大的空暇时间。</p>
-<h4 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式"></a>输入格式</h4><p>输入数据第一行含两个用空格隔开的整数 n 和 k。</p>
-<p>接下来共有 k 行，每一行有两个用空格隔开的整数 p 和 t，表示该任务从第 p 分钟开始，持续时间为 t 分钟。</p>
-<h4 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式"></a>输出格式</h4><p>输出文件仅一行，包含一个整数，表示尼克可能获得的最大空暇时间。</p>
-<h4 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h4><p>题意是给定一些任务，如何选取任务来获得最大的空闲时间<del>（还不赶快学了去摸鱼）</del>。由于是求空闲时间，所以可以将<code>1~n</code>的每一分钟都拆分成一个<strong>状态</strong>，设<code>d[i]</code> 为从时间 i 开始，最多能获得多少空闲时间。一开始可能会觉得如何判断当前选取的任务是否与之前选择的任务时间上有重叠不太好处理，我们可以对所有任务按开始时间排个序，然后对时间进行逆序遍历，仅当当前时间点有任务开始，才进行决策，<strong>状态转移</strong>方程为 $d(i) = max(d(i),~ d(i+T_i-1))$，若当前时间点没有任务开始，则 $d(i) = d(i+1)+1$，由于是按开始时间来排序并决策，所以不会影响到前面的小的时间点，所以保证了<strong>无后效性</strong>，并且不需要判断选取的两个任务是否有时间冲突（状态转移保证了不会有冲突）。这里用桶存储了某个时间点开始任务的个数，并且用一个<code>p</code>指针记录从哪开始访问任务。排序是 $O(nlog(n))$ 的时间复杂度，DP 的过程是线性的 $O(n + k)$，所以<strong>时间复杂度</strong>为 $O(nlog(n))$。</p>
-<h4 id="DP"><a href="#DP" class="headerlink" title="DP"></a>DP</h4><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">node</span> &#123;</span></span><br><span class="line">  <span class="keyword">int</span> st, t;</span><br><span class="line">  <span class="keyword">bool</span> <span class="keyword">operator</span> &lt; (<span class="keyword">const</span> node &amp;r) <span class="keyword">const</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> st &lt; r.st;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn = <span class="number">1e4</span> + <span class="number">10</span>;</span><br><span class="line">node a[maxn];</span><br><span class="line"><span class="keyword">int</span> d[maxn], c[maxn]; <span class="comment">// d: 以时间 i 开始，最多能获得多少空闲时间； c: 以 i 为开始时间的任务数</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;F</span><br><span class="line">  <span class="keyword">int</span> n, k, st, t;</span><br><span class="line">  <span class="built_in">scanf</span>(<span class="string">"%d%d"</span>, &amp;n, &amp;k);</span><br><span class="line">  rep(i, <span class="number">1</span>, k) &#123;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d%d"</span>, &amp;st, &amp;t);</span><br><span class="line">    a[i].st = st; a[i].t = t;</span><br><span class="line">    c[st]++;</span><br><span class="line">  &#125;</span><br><span class="line">  sort(a+<span class="number">1</span>, a+k+<span class="number">1</span>);</span><br><span class="line">  <span class="keyword">int</span> p = k; <span class="comment">// 记录从哪开始访问任务，1~p 为还未访问的任务</span></span><br><span class="line">  per(i, n, <span class="number">1</span>) &#123;</span><br><span class="line">    <span class="keyword">if</span>(c[i] == <span class="number">0</span>) d[i] = d[i+<span class="number">1</span>] + <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">else</span> &#123;</span><br><span class="line">      per(j, c[i], <span class="number">1</span>)</span><br><span class="line">        d[i] = <span class="built_in">max</span>(d[i], d[i + a[p--].t]);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="built_in">printf</span>(<span class="string">"%d"</span>, d[<span class="number">1</span>]);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
+<h4 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h4><p>尼克每天上班之前都连接上英特网，接收他的上司发来的邮件，这些邮件包含了尼克主管的部门当天要完成的全部任务，每个任务由一个开始时刻与一个持续时间构成。
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/05/01/P1280-%E5%B0%BC%E5%85%8B%E7%9A%84%E4%BB%BB%E5%8A%A1-%E7%BA%BF%E6%80%A7%E7%BB%93%E6%9E%84DP/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -438,87 +444,6 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://hahmango.github.io/2020/04/28/%E6%B7%BB%E5%8A%A0-snippets-%E4%BB%A3%E7%A0%81%E6%A8%A1%E6%9D%BF%E7%89%87%E6%AE%B5/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="xiaowenlong">
-      <meta itemprop="description" content="keep recording my algorithm daily">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="xiaowenlong's blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/04/28/%E6%B7%BB%E5%8A%A0-snippets-%E4%BB%A3%E7%A0%81%E6%A8%A1%E6%9D%BF%E7%89%87%E6%AE%B5/" class="post-title-link" itemprop="url">添加 snippets 代码模板片段</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2020-04-28 22:08:29" itemprop="dateCreated datePublished" datetime="2020-04-28T22:08:29+08:00">2020-04-28</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-04-30 10:21:32" itemprop="dateModified" datetime="2020-04-30T10:21:32+08:00">2020-04-30</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%B7%A5%E5%85%B7/" itemprop="url" rel="index"><span itemprop="name">工具</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>先附上我的代码模板
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/04/28/%E6%B7%BB%E5%8A%A0-snippets-%E4%BB%A3%E7%A0%81%E6%A8%A1%E6%9D%BF%E7%89%87%E6%AE%B5/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="https://hahmango.github.io/2020/04/28/uva10003-Cutting-Sticks-DP%E5%89%96%E5%88%86/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -582,81 +507,6 @@
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2020/04/28/uva10003-Cutting-Sticks-DP%E5%89%96%E5%88%86/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://hahmango.github.io/2020/04/28/%E5%90%84%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E4%B9%8B%E9%97%B4%E8%BF%9B%E8%A1%8C%E6%96%87%E4%BB%B6%E4%BC%A0%E8%BE%93/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="xiaowenlong">
-      <meta itemprop="description" content="keep recording my algorithm daily">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="xiaowenlong's blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/04/28/%E5%90%84%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E4%B9%8B%E9%97%B4%E8%BF%9B%E8%A1%8C%E6%96%87%E4%BB%B6%E4%BC%A0%E8%BE%93/" class="post-title-link" itemprop="url">各操作系统之间进行文件传输 SCP、WinSCP、rsync</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-              
-
-              <time title="Created: 2020-04-28 09:45:56 / Modified: 12:09:16" itemprop="dateCreated datePublished" datetime="2020-04-28T09:45:56+08:00">2020-04-28</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="SCP"><a href="#SCP" class="headerlink" title="SCP"></a>SCP</h2><p>scp 命令用于 Linux / Unix 之间复制文件和目录，是基于 ssh 登陆进行安全的远程文件拷贝命令。
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/04/28/%E5%90%84%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E4%B9%8B%E9%97%B4%E8%BF%9B%E8%A1%8C%E6%96%87%E4%BB%B6%E4%BC%A0%E8%BE%93/#more" rel="contents">
                 Read more &raquo;
               </a>
             </div>
@@ -920,6 +770,163 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://hahmango.github.io/2020/04/13/2020-Wuhan-University-Collegiate-Programming-Contest-Preliminary-Contest-A-Monument-For-Heroes/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="xiaowenlong">
+      <meta itemprop="description" content="keep recording my algorithm daily">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="xiaowenlong's blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/04/13/2020-Wuhan-University-Collegiate-Programming-Contest-Preliminary-Contest-A-Monument-For-Heroes/" class="post-title-link" itemprop="url">2020 Wuhan University Collegiate Programming Contest (Preliminary Contest)--A Monument For Heroes</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-04-13 19:22:29" itemprop="dateCreated datePublished" datetime="2020-04-13T19:22:29+08:00">2020-04-13</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-05-02 18:39:29" itemprop="dateModified" datetime="2020-05-02T18:39:29+08:00">2020-05-02</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/DP/" itemprop="url" rel="index"><span itemprop="name">DP</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p><a href="https://ac.nowcoder.com/acm/contest/5166/A" target="_blank" rel="noopener">A Monument For Heroes</a></p>
+<h4 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h4><p>Months ago, the COVID-19 swept Wuhan. In order to control the outbreak, many people tried their best to help Wuhan, and with their help, we finally (almost) beat the virus, so we are going to set up a monument and write the names of all the contributors to express our gratitude to them. But there are so many people who have helped Wuhan so there are so many names to write, and how to arrange them is a big problem, so we decided that we will choose some representative names and rearrange their order to make them neatly. But until now we still do not know the maximum length of letters that will be write on the monument. We cannot leave enough space for these names without this number, so we leave this problem for you.
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/04/13/2020-Wuhan-University-Collegiate-Programming-Contest-Preliminary-Contest-A-Monument-For-Heroes/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://hahmango.github.io/2020/04/13/2020-Wuhan-University-Collegiate-Programming-Contest-Preliminary-Contest-E-Yu-is-a-Brutal-Creature/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="xiaowenlong">
+      <meta itemprop="description" content="keep recording my algorithm daily">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="xiaowenlong's blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/04/13/2020-Wuhan-University-Collegiate-Programming-Contest-Preliminary-Contest-E-Yu-is-a-Brutal-Creature/" class="post-title-link" itemprop="url">2020 Wuhan University Collegiate Programming Contest (Preliminary Contest)--E Yu is a Brutal Creature</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-04-13 19:12:36" itemprop="dateCreated datePublished" datetime="2020-04-13T19:12:36+08:00">2020-04-13</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-05-02 18:40:04" itemprop="dateModified" datetime="2020-05-02T18:40:04+08:00">2020-05-02</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p><a href="https://ac.nowcoder.com/acm/contest/5166/E" target="_blank" rel="noopener">E Yu is a Brutal Creature</a></p>
+<h4 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h4><p>题意是找出 0 到 n 之间所有满足 $\frac{n^2+1}{n+1}$ 为整数的数的个数。由于</p>
+<script type="math/tex; mode=display">
+\frac{n^2+1}{n+1}=\frac{n^2+n}{n+1}-\frac{n-1}{n+1}=n-\frac{n-1}{n+1}</script><p>显然，只有当 $n=0$ 或 $1$ 的时候，式子才会是整数，所以答案是 $n-1$。
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/04/13/2020-Wuhan-University-Collegiate-Programming-Contest-Preliminary-Contest-E-Yu-is-a-Brutal-Creature/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="https://hahmango.github.io/2020/04/13/2020-Wuhan-University-Collegiate-Programming-Contest-Preliminary-Contest-DIY-Masks-at-Home/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -944,14 +951,14 @@
               </span>
               <span class="post-meta-item-text">Posted on</span>
 
-              <time title="Created: 2020-04-13 19:51:03" itemprop="dateCreated datePublished" datetime="2020-04-13T19:51:03+08:00">2020-04-13</time>
+              <time title="Created: 2020-04-13 19:01:03" itemprop="dateCreated datePublished" datetime="2020-04-13T19:01:03+08:00">2020-04-13</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-04-27 18:55:30" itemprop="dateModified" datetime="2020-04-27T18:55:30+08:00">2020-04-27</time>
+                <time title="Modified: 2020-05-02 18:40:22" itemprop="dateModified" datetime="2020-05-02T18:40:22+08:00">2020-05-02</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
