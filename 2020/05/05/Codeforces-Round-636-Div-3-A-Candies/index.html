@@ -30,7 +30,7 @@
 <meta property="og:description" content="A. Candies Recently Vova found 𝑛 candy wrappers. He remembers that he bought 𝑥 candies during the first day, 2𝑥 candies during the second day, 4𝑥 candies during the third day, ……, $2^{𝑘−1}𝑥$ can">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-05-05T13:40:25.000Z">
-<meta property="article:modified_time" content="2020-05-05T15:28:10.964Z">
+<meta property="article:modified_time" content="2020-05-05T15:28:56.288Z">
 <meta property="article:author" content="xiaowenlong">
 <meta property="article:tag" content="Codeforces">
 <meta name="twitter:card" content="summary">
@@ -215,7 +215,7 @@
               <span class="post-meta-item-text">Posted on</span>
               
 
-              <time title="Created: 2020-05-05 21:40:25 / Modified: 23:28:10" itemprop="dateCreated datePublished" datetime="2020-05-05T21:40:25+08:00">2020-05-05</time>
+              <time title="Created: 2020-05-05 21:40:25 / Modified: 23:28:56" itemprop="dateCreated datePublished" datetime="2020-05-05T21:40:25+08:00">2020-05-05</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -466,6 +466,59 @@ x &= \frac{n}{2^k-1}
   
 
   
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
 
   
 
