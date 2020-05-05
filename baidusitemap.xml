@@ -1,6 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://hahmango.github.io/2020/05/05/Codeforces-Round-636-Div-3-A-Candies/</loc>
+    <lastmod>2020-05-05</lastmod>
+  </url>  <url>
+    <loc>https://hahmango.github.io/2020/05/05/Codeforces-Round-636-Div-3-B-Balanced-Array/</loc>
+    <lastmod>2020-05-05</lastmod>
+  </url>  <url>
+    <loc>https://hahmango.github.io/2020/05/05/Codeforces-Round-636-Div-3-C-Alternating-Subsequence/</loc>
+    <lastmod>2020-05-05</lastmod>
+  </url>  <url>
+    <loc>https://hahmango.github.io/2020/05/05/Codeforces-Round-636-Div-3-E-Weights-Distributing/</loc>
+    <lastmod>2020-05-05</lastmod>
+  </url>  <url>
+    <loc>https://hahmango.github.io/2020/04/13/2020-Wuhan-University-Collegiate-Programming-Contest-Preliminary-Contest-E-Yu-is-a-Brutal-Creature/</loc>
+    <lastmod>2020-05-05</lastmod>
+  </url>  <url>
+    <loc>https://hahmango.github.io/2020/04/28/uva10003-Cutting-Sticks-DP%E5%89%96%E5%88%86%E9%97%AE%E9%A2%98/</loc>
+    <lastmod>2020-05-02</lastmod>
+  </url>  <url>
     <loc>https://hahmango.github.io/2020/04/06/P1280-%E5%B0%BC%E5%85%8B%E7%9A%84%E4%BB%BB%E5%8A%A1-%E7%BA%BF%E6%80%A7%E7%BB%93%E6%9E%84DP/</loc>
     <lastmod>2020-05-02</lastmod>
   </url>  <url>
@@ -25,9 +43,6 @@
     <loc>https://hahmango.github.io/2020/04/13/2020-Wuhan-University-Collegiate-Programming-Contest-Preliminary-Contest-DIY-Masks-at-Home/</loc>
     <lastmod>2020-05-02</lastmod>
   </url>  <url>
-    <loc>https://hahmango.github.io/2020/04/13/2020-Wuhan-University-Collegiate-Programming-Contest-Preliminary-Contest-E-Yu-is-a-Brutal-Creature/</loc>
-    <lastmod>2020-05-02</lastmod>
-  </url>  <url>
     <loc>https://hahmango.github.io/2020/04/13/2020-Wuhan-University-Collegiate-Programming-Contest-Preliminary-Contest-A-Monument-For-Heroes/</loc>
     <lastmod>2020-05-02</lastmod>
   </url>  <url>
@@ -38,9 +53,6 @@
     <lastmod>2020-04-30</lastmod>
   </url>  <url>
     <loc>https://hahmango.github.io/2020/04/29/uva1626-Brackets-sequence-%E7%BA%BF%E6%80%A7%E7%BB%93%E6%9E%84DP/</loc>
-    <lastmod>2020-04-30</lastmod>
-  </url>  <url>
-    <loc>https://hahmango.github.io/2020/04/28/uva10003-Cutting-Sticks-DP%E5%89%96%E5%88%86/</loc>
     <lastmod>2020-04-30</lastmod>
   </url>  <url>
     <loc>https://hahmango.github.io/2020/04/27/%E6%9C%80%E9%95%BF%E5%85%AC%E5%85%B1%E5%AD%90%E5%BA%8F%E5%88%97-LCS-DP-%E8%BD%ACLIS%E6%B1%82%E8%A7%A3/</loc>

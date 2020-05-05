@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <meta name="google-site-verification" content="9Hqbq3swhWgFNzB4hg_z8G60gon7MGIad0IzNDVeZV8">
+  <meta name="baidu-site-verification" content="eFSsZtUUlp">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"hahmango.github.io","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="Codeforces Round #636 (Div. 3) E. Weights Distributing You are given an undirected unweighted graph consisting of 𝑛 vertices and 𝑚 edges (which represents the map of Bertown) and the array of prices">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Codeforces Round #636 (Div. 3) E. Weights Distributing 排序+BFS">
+<meta property="og:url" content="https://hahmango.github.io/2020/05/05/Codeforces-Round-636-Div-3-E-Weights-Distributing/index.html">
+<meta property="og:site_name" content="xiaowenlong&#39;s blog">
+<meta property="og:description" content="Codeforces Round #636 (Div. 3) E. Weights Distributing You are given an undirected unweighted graph consisting of 𝑛 vertices and 𝑚 edges (which represents the map of Bertown) and the array of prices">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-05-05T14:42:16.000Z">
+<meta property="article:modified_time" content="2020-05-05T15:27:19.487Z">
+<meta property="article:author" content="xiaowenlong">
+<meta property="article:tag" content="Codeforces">
+<meta property="article:tag" content="BFS">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://hahmango.github.io/2020/05/05/Codeforces-Round-636-Div-3-E-Weights-Distributing/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+
+  <title>Codeforces Round #636 (Div. 3) E. Weights Distributing 排序+BFS | xiaowenlong's blog</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">xiaowenlong's blog</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://hahmango.github.io/2020/05/05/Codeforces-Round-636-Div-3-E-Weights-Distributing/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="xiaowenlong">
+      <meta itemprop="description" content="keep recording my algorithm daily">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="xiaowenlong's blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Codeforces Round #636 (Div. 3) E. Weights Distributing 排序+BFS
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2020-05-05 22:42:16 / Modified: 23:27:19" itemprop="dateCreated datePublished" datetime="2020-05-05T22:42:16+08:00">2020-05-05</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Codeforces/" itemprop="url" rel="index"><span itemprop="name">Codeforces</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p><a href="https://codeforces.com/contest/1343/problem/E" target="_blank" rel="noopener">Codeforces Round #636 (Div. 3) E. Weights Distributing</a></p>
+<p>You are given an undirected unweighted graph consisting of 𝑛 vertices and 𝑚 edges (which represents the map of Bertown) and the array of prices 𝑝 of length 𝑚. It is guaranteed that there is a path between each pair of vertices (districts).<a id="more"></a></p>
+<p>Mike has planned a trip from the vertex (district) 𝑎 to the vertex (district) 𝑏 and then from the vertex (district) 𝑏 to the vertex (district) 𝑐. He can visit the same district twice or more. But there is one issue: authorities of the city want to set a price for using the road so if someone goes along the road then he should pay the price corresponding to this road (<strong>he pays each time he goes along the road</strong>). The list of prices that will be used 𝑝 is ready and they just want to distribute it between all roads in the town in such a way that each price from the array corresponds to exactly one road.</p>
+<p>You are a good friend of Mike (and suddenly a mayor of Bertown) and want to help him to make his trip as cheap as possible. So, your task is to distribute prices between roads in such a way that if Mike chooses the optimal path then the price of the trip is the <strong>minimum</strong>possible. <strong>Note that you cannot rearrange prices after the start of the trip</strong>.</p>
+<p>You have to answer 𝑡 independent test cases.</p>
+<h4 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h4><p>The first line of the input contains one integer 𝑡 ($1≤𝑡≤10^4$) — the number of test cases. Then 𝑡t test cases follow.</p>
+<p>The first line of the test case contains five integers 𝑛,𝑚,𝑎,𝑏 and 𝑐 ($2≤𝑛≤2⋅10^5, 𝑛−1≤𝑚≤𝑚𝑖𝑛(𝑛(𝑛−1)/2),2⋅10^5$), 1≤𝑎,𝑏,𝑐≤𝑛) — the number of vertices, the number of edges and districts in Mike’s trip.</p>
+<p>The second line of the test case contains 𝑚 integers 𝑝1,𝑝2,…,𝑝𝑚 ($1≤𝑝_𝑖≤10^9$), where $𝑝_𝑖$ is the 𝑖-th price from the array.</p>
+<p>The following 𝑚 lines of the test case denote edges: edge 𝑖 is represented by a pair of integers 𝑣𝑖, 𝑢𝑖 (1≤𝑣𝑖,𝑢𝑖≤𝑛, 𝑢𝑖≠𝑣𝑖), which are the indices of vertices connected by the edge. There are no loops or multiple edges in the given graph, i. e. for each pair (𝑣𝑖,𝑢𝑖) there are no other pairs (𝑣𝑖,𝑢𝑖) or (𝑢𝑖,𝑣𝑖) in the array of edges, and for each pair (𝑣𝑖,𝑢𝑖) the condition 𝑣𝑖≠𝑢𝑖 is satisfied. It is guaranteed that the given graph is connected.</p>
+<p>It is guaranteed that the sum of 𝑛 (as well as the sum of 𝑚) does not exceed $2⋅10^5$ ($∑𝑛≤2⋅10^5, ∑𝑚≤2⋅10^5$).</p>
+<h4 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h4><p>For each test case, print the answer — the <strong>minimum</strong> possible price of Mike’s trip if you distribute prices between edges optimally.</p>
+<h4 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h4><p>给你一个 n 个点 m 条边的无向无权图，一个长度为 m 的数组 p，以及三个地点 A,B,C 现在你可以任意将 $p_1…p_m$ 一一对应给每一条边作为边权，问你 a→b→c 的最短路径是多少?</p>
+<p>对于 a→b→c 有两种情况：</p>
+<ol>
+<li>a→b→c 路径在一条线上，可以看做一条直线，样例2就是这种情况。</li>
+<li>a→b→c 路径不在一条线上，不能看做一条直线，路径中存在一个交叉结点 x，使得 a→b→c 为 a-&gt;x-&gt;b-&gt;x-&gt;c，这种情况显然有一段路会重复经过，即 x-b，样例1就是这种情况。</li>
+</ol>
+<p>其实情况1是情况2的一种特殊情形，即 b=x。</p>
+<p>利用贪心思想，先用 BFS 求出 a, b, c 三点到每个点的最短路径的长度，然后枚举每一个结点作为中间交叉结点 x，找出一共所经过的的路径的最少的段数 k，然后从需要分配的路段价格中取出 k 段路的价格，答案就是这个的和。</p>
+<p>三段 BFS 的时间复杂度为 $O(3n)$，枚举的时间复杂度为 $O(n)$，找最小的路段价格可以先排序，时间复杂度为 $O(nlog(n))$，所以总时间复杂度为 $O(nlog(n))$。</p>
+<h4 id="排序-BFS"><a href="#排序-BFS" class="headerlink" title="排序+BFS"></a>排序+BFS</h4><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn = <span class="number">2e5</span> + <span class="number">10</span>;</span><br><span class="line"><span class="keyword">int</span> p[maxn];</span><br><span class="line">ll pref[maxn];</span><br><span class="line"><span class="built_in">vector</span>&lt;vi&gt; g;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">bfs</span><span class="params">(<span class="keyword">int</span> s, vi &amp;d)</span> </span>&#123;</span><br><span class="line">  d[s] = <span class="number">0</span>;</span><br><span class="line">  <span class="built_in">queue</span>&lt;<span class="keyword">int</span>&gt; q;</span><br><span class="line">  q.push(s);</span><br><span class="line">  <span class="keyword">while</span>(!q.empty()) &#123;</span><br><span class="line">    <span class="keyword">int</span> u = q.front(); q.pop();</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">auto</span> &amp;to : g[u]) &#123;</span><br><span class="line">      <span class="keyword">if</span>(d[to] == inf) &#123;</span><br><span class="line">        d[to] = d[u] + <span class="number">1</span>;</span><br><span class="line">        q.push(to);</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;F</span><br><span class="line">  <span class="keyword">int</span> t, n, m, a, b, c, x, y;</span><br><span class="line">  <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;t);</span><br><span class="line">  <span class="keyword">while</span>(t--) &#123;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d%d%d%d%d"</span>, &amp;n, &amp;m, &amp;a, &amp;b, &amp;c);</span><br><span class="line">    rep(i, <span class="number">1</span>, m) <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;p[i]);</span><br><span class="line">    sort(p+<span class="number">1</span>, p+m+<span class="number">1</span>);</span><br><span class="line">    rep(i, <span class="number">1</span>, m)</span><br><span class="line">      pref[i] = pref[i<span class="number">-1</span>] + p[i];</span><br><span class="line">    g = <span class="built_in">vector</span>&lt;vi&gt; (n+<span class="number">1</span>);</span><br><span class="line">    rep(i, <span class="number">1</span>, m) &#123;</span><br><span class="line">      <span class="built_in">scanf</span>(<span class="string">"%d%d"</span>, &amp;x, &amp;y);</span><br><span class="line">      g[x].pb(y); g[y].pb(x);</span><br><span class="line">    &#125;</span><br><span class="line">    vi da(n+1, inf), db(n+1, inf), dc(n+1, inf); // inf 不能太大；d：表示到某个点的路径长度</span><br><span class="line">    bfs(a, da); bfs(b, db); bfs(c, dc);</span><br><span class="line">    ll ans = (ll)<span class="number">1</span>&lt;&lt;<span class="number">62</span>;</span><br><span class="line">    rep(i, <span class="number">1</span>, n) &#123; <span class="comment">// 枚举中间交叉结点</span></span><br><span class="line">      <span class="keyword">if</span>(da[i] + db[i] + dc[i] &gt; m) <span class="keyword">continue</span>; <span class="comment">// 注意如果 inf 太大的话，加法可能会溢出</span></span><br><span class="line">      ans = <span class="built_in">min</span>(ans, pref[db[i]] + pref[da[i] + db[i] + dc[i]]);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%lld\n"</span>, ans);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Codeforces/" rel="tag"># Codeforces</a>
+              <a href="/tags/BFS/" rel="tag"># BFS</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/05/05/Codeforces-Round-636-Div-3-C-Alternating-Subsequence/" rel="prev" title="Codeforces Round #636 (Div. 3) C. Alternating Subsequence">
+      <i class="fa fa-chevron-left"></i> Codeforces Round #636 (Div. 3) C. Alternating Subsequence
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#Input"><span class="nav-text">Input</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Output"><span class="nav-text">Output</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#分析"><span class="nav-text">分析</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#排序-BFS"><span class="nav-text">排序+BFS</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">xiaowenlong</p>
+  <div class="site-description" itemprop="description">keep recording my algorithm daily</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">22</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">22</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/hahmango" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;hahmango" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i></a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">xiaowenlong</span>
+</div>
+<!--
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a>
+  </div>-->
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+  <script>
+    (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      bp.src = (curProtocol === 'https') ? 'https://zz.bdstatic.com/linksubmit/push.js' : 'http://push.zhanzhang.baidu.com/push.js';
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+</body>
+</html>
