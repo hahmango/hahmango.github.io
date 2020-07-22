@@ -22,21 +22,20 @@
     var CONFIG = {"hostname":"hahmango.github.io","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="Codeforces Round #636 (Div. 3) E. Weights Distributing You are given an undirected unweighted graph consisting of 𝑛 vertices and 𝑚 edges (which represents the map of Bertown) and the array of prices">
+  <meta name="description" content="LeetCode 1519.子树中标签相同的节点数 给你一棵树（即，一个连通的无环无向图），这棵树由编号从 0  到 n - 1 的 n 个节点组成，且恰好有 n - 1 条 edges 。树的根节点为节点 0 ，树上的每一个节点都有一个标签，也就是字符串 labels 中的一个小写字符（编号为 i 的 节点的标签就是 labels[i] ） 边数组 edges 以 edges[i] &#x3D; [ai,">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Codeforces Round #636 (Div. 3) E. Weights Distributing 排序+BFS">
-<meta property="og:url" content="https://hahmango.github.io/2020/05/05/Codeforces-Round-636-Div-3-E-Weights-Distributing/index.html">
+<meta property="og:title" content="LeetCode 第198场周赛 1519.子树中标签相同的节点数">
+<meta property="og:url" content="https://hahmango.github.io/2020/07/22/LeetCode-%E7%AC%AC198%E5%9C%BA%E5%91%A8%E8%B5%9B-1519-%E5%AD%90%E6%A0%91%E4%B8%AD%E6%A0%87%E7%AD%BE%E7%9B%B8%E5%90%8C%E7%9A%84%E8%8A%82%E7%82%B9%E6%95%B0/index.html">
 <meta property="og:site_name" content="xiaowenlong&#39;s blog">
-<meta property="og:description" content="Codeforces Round #636 (Div. 3) E. Weights Distributing You are given an undirected unweighted graph consisting of 𝑛 vertices and 𝑚 edges (which represents the map of Bertown) and the array of prices">
+<meta property="og:description" content="LeetCode 1519.子树中标签相同的节点数 给你一棵树（即，一个连通的无环无向图），这棵树由编号从 0  到 n - 1 的 n 个节点组成，且恰好有 n - 1 条 edges 。树的根节点为节点 0 ，树上的每一个节点都有一个标签，也就是字符串 labels 中的一个小写字符（编号为 i 的 节点的标签就是 labels[i] ） 边数组 edges 以 edges[i] &#x3D; [ai,">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2020-05-05T14:42:16.000Z">
-<meta property="article:modified_time" content="2020-05-05T15:28:41.378Z">
+<meta property="article:published_time" content="2020-07-22T07:14:54.000Z">
+<meta property="article:modified_time" content="2020-07-22T07:32:21.288Z">
 <meta property="article:author" content="xiaowenlong">
-<meta property="article:tag" content="Codeforces">
-<meta property="article:tag" content="BFS">
+<meta property="article:tag" content="LeetCode">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="https://hahmango.github.io/2020/05/05/Codeforces-Round-636-Div-3-E-Weights-Distributing/">
+<link rel="canonical" href="https://hahmango.github.io/2020/07/22/LeetCode-%E7%AC%AC198%E5%9C%BA%E5%91%A8%E8%B5%9B-1519-%E5%AD%90%E6%A0%91%E4%B8%AD%E6%A0%87%E7%AD%BE%E7%9B%B8%E5%90%8C%E7%9A%84%E8%8A%82%E7%82%B9%E6%95%B0/">
 
 
 <script id="page-configurations">
@@ -49,7 +48,7 @@
   };
 </script>
 
-  <title>Codeforces Round #636 (Div. 3) E. Weights Distributing 排序+BFS | xiaowenlong's blog</title>
+  <title>LeetCode 第198场周赛 1519.子树中标签相同的节点数 | xiaowenlong's blog</title>
   
 
 
@@ -192,7 +191,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://hahmango.github.io/2020/05/05/Codeforces-Round-636-Div-3-E-Weights-Distributing/">
+    <link itemprop="mainEntityOfPage" href="https://hahmango.github.io/2020/07/22/LeetCode-%E7%AC%AC198%E5%9C%BA%E5%91%A8%E8%B5%9B-1519-%E5%AD%90%E6%A0%91%E4%B8%AD%E6%A0%87%E7%AD%BE%E7%9B%B8%E5%90%8C%E7%9A%84%E8%8A%82%E7%82%B9%E6%95%B0/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -205,7 +204,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          Codeforces Round #636 (Div. 3) E. Weights Distributing 排序+BFS
+          LeetCode 第198场周赛 1519.子树中标签相同的节点数
         </h1>
 
         <div class="post-meta">
@@ -216,7 +215,7 @@
               <span class="post-meta-item-text">Posted on</span>
               
 
-              <time title="Created: 2020-05-05 22:42:16 / Modified: 23:28:41" itemprop="dateCreated datePublished" datetime="2020-05-05T22:42:16+08:00">2020-05-05</time>
+              <time title="Created: 2020-07-22 15:14:54 / Modified: 15:32:21" itemprop="dateCreated datePublished" datetime="2020-07-22T15:14:54+08:00">2020-07-22</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -224,7 +223,7 @@
               </span>
               <span class="post-meta-item-text">In</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Codeforces/" itemprop="url" rel="index"><span itemprop="name">Codeforces</span></a>
+                  <a href="/categories/LeetCode/" itemprop="url" rel="index"><span itemprop="name">LeetCode</span></a>
                 </span>
             </span>
 
@@ -239,27 +238,20 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p><a href="https://codeforces.com/contest/1343/problem/E" target="_blank" rel="noopener">Codeforces Round #636 (Div. 3) E. Weights Distributing</a></p>
-<p>You are given an undirected unweighted graph consisting of 𝑛 vertices and 𝑚 edges (which represents the map of Bertown) and the array of prices 𝑝 of length 𝑚. It is guaranteed that there is a path between each pair of vertices (districts).<a id="more"></a></p>
-<p>Mike has planned a trip from the vertex (district) 𝑎 to the vertex (district) 𝑏 and then from the vertex (district) 𝑏 to the vertex (district) 𝑐. He can visit the same district twice or more. But there is one issue: authorities of the city want to set a price for using the road so if someone goes along the road then he should pay the price corresponding to this road (<strong>he pays each time he goes along the road</strong>). The list of prices that will be used 𝑝 is ready and they just want to distribute it between all roads in the town in such a way that each price from the array corresponds to exactly one road.</p>
-<p>You are a good friend of Mike (and suddenly a mayor of Bertown) and want to help him to make his trip as cheap as possible. So, your task is to distribute prices between roads in such a way that if Mike chooses the optimal path then the price of the trip is the <strong>minimum</strong>possible. <strong>Note that you cannot rearrange prices after the start of the trip</strong>.</p>
-<p>You have to answer 𝑡 independent test cases.</p>
-<h4 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h4><p>The first line of the input contains one integer 𝑡 ($1≤𝑡≤10^4$) — the number of test cases. Then 𝑡t test cases follow.</p>
-<p>The first line of the test case contains five integers 𝑛,𝑚,𝑎,𝑏 and 𝑐 ($2≤𝑛≤2⋅10^5, 𝑛−1≤𝑚≤𝑚𝑖𝑛(𝑛(𝑛−1)/2),2⋅10^5$), 1≤𝑎,𝑏,𝑐≤𝑛) — the number of vertices, the number of edges and districts in Mike’s trip.</p>
-<p>The second line of the test case contains 𝑚 integers 𝑝1,𝑝2,…,𝑝𝑚 ($1≤𝑝_𝑖≤10^9$), where $𝑝_𝑖$ is the 𝑖-th price from the array.</p>
-<p>The following 𝑚 lines of the test case denote edges: edge 𝑖 is represented by a pair of integers 𝑣𝑖, 𝑢𝑖 (1≤𝑣𝑖,𝑢𝑖≤𝑛, 𝑢𝑖≠𝑣𝑖), which are the indices of vertices connected by the edge. There are no loops or multiple edges in the given graph, i. e. for each pair (𝑣𝑖,𝑢𝑖) there are no other pairs (𝑣𝑖,𝑢𝑖) or (𝑢𝑖,𝑣𝑖) in the array of edges, and for each pair (𝑣𝑖,𝑢𝑖) the condition 𝑣𝑖≠𝑢𝑖 is satisfied. It is guaranteed that the given graph is connected.</p>
-<p>It is guaranteed that the sum of 𝑛 (as well as the sum of 𝑚) does not exceed $2⋅10^5$ ($∑𝑛≤2⋅10^5, ∑𝑚≤2⋅10^5$).</p>
-<h4 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h4><p>For each test case, print the answer — the <strong>minimum</strong> possible price of Mike’s trip if you distribute prices between edges optimally.</p>
-<h4 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h4><p>给你一个 n 个点 m 条边的无向无权图，一个长度为 m 的数组 p，以及三个地点 A,B,C 现在你可以任意将 $p_1…p_m$ 一一对应给每一条边作为边权，问你 a→b→c 的最短路径是多少?</p>
-<p>对于 a→b→c 有两种情况：</p>
-<ol>
-<li>a→b→c 路径在一条线上，可以看做一条直线，样例2就是这种情况。</li>
-<li>a→b→c 路径不在一条线上，不能看做一条直线，路径中存在一个交叉结点 x，使得 a→b→c 为 a-&gt;x-&gt;b-&gt;x-&gt;c，这种情况显然有一段路会重复经过，即 x-b，样例1就是这种情况。</li>
-</ol>
-<p>其实情况1是情况2的一种特殊情形，即 b=x。</p>
-<p>利用贪心思想，先用 BFS 求出 a, b, c 三点到每个点的最短路径的长度，然后枚举每一个结点作为中间交叉结点 x，找出一共所经过的的路径的最少的段数 k，然后从需要分配的路段价格中取出 k 段路的价格，答案就是这个的和。</p>
-<p>三段 BFS 的时间复杂度为 $O(3n)$，枚举的时间复杂度为 $O(n)$，找最小的路段价格可以先排序，时间复杂度为 $O(nlog(n))$，所以总时间复杂度为 $O(nlog(n))$。</p>
-<h4 id="排序-BFS"><a href="#排序-BFS" class="headerlink" title="排序+BFS"></a>排序+BFS</h4><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn = <span class="number">2e5</span> + <span class="number">10</span>;</span><br><span class="line"><span class="keyword">int</span> p[maxn];</span><br><span class="line">ll pref[maxn];</span><br><span class="line"><span class="built_in">vector</span>&lt;vi&gt; g;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">bfs</span><span class="params">(<span class="keyword">int</span> s, vi &amp;d)</span> </span>&#123;</span><br><span class="line">  d[s] = <span class="number">0</span>;</span><br><span class="line">  <span class="built_in">queue</span>&lt;<span class="keyword">int</span>&gt; q;</span><br><span class="line">  q.push(s);</span><br><span class="line">  <span class="keyword">while</span>(!q.empty()) &#123;</span><br><span class="line">    <span class="keyword">int</span> u = q.front(); q.pop();</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">auto</span> &amp;to : g[u]) &#123;</span><br><span class="line">      <span class="keyword">if</span>(d[to] == inf) &#123;</span><br><span class="line">        d[to] = d[u] + <span class="number">1</span>;</span><br><span class="line">        q.push(to);</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;F</span><br><span class="line">  <span class="keyword">int</span> t, n, m, a, b, c, x, y;</span><br><span class="line">  <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;t);</span><br><span class="line">  <span class="keyword">while</span>(t--) &#123;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d%d%d%d%d"</span>, &amp;n, &amp;m, &amp;a, &amp;b, &amp;c);</span><br><span class="line">    rep(i, <span class="number">1</span>, m) <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;p[i]);</span><br><span class="line">    sort(p+<span class="number">1</span>, p+m+<span class="number">1</span>);</span><br><span class="line">    rep(i, <span class="number">1</span>, m)</span><br><span class="line">      pref[i] = pref[i<span class="number">-1</span>] + p[i];</span><br><span class="line">    g = <span class="built_in">vector</span>&lt;vi&gt; (n+<span class="number">1</span>);</span><br><span class="line">    rep(i, <span class="number">1</span>, m) &#123;</span><br><span class="line">      <span class="built_in">scanf</span>(<span class="string">"%d%d"</span>, &amp;x, &amp;y);</span><br><span class="line">      g[x].pb(y); g[y].pb(x);</span><br><span class="line">    &#125;</span><br><span class="line">    vi da(n+1, inf), db(n+1, inf), dc(n+1, inf); // inf 不能太大；d：表示到某个点的路径长度</span><br><span class="line">    bfs(a, da); bfs(b, db); bfs(c, dc);</span><br><span class="line">    ll ans = (ll)<span class="number">1</span>&lt;&lt;<span class="number">62</span>;</span><br><span class="line">    rep(i, <span class="number">1</span>, n) &#123; <span class="comment">// 枚举中间交叉结点</span></span><br><span class="line">      <span class="keyword">if</span>(da[i] + db[i] + dc[i] &gt; m) <span class="keyword">continue</span>; <span class="comment">// 注意如果 inf 太大的话，加法可能会溢出</span></span><br><span class="line">      ans = <span class="built_in">min</span>(ans, pref[db[i]] + pref[da[i] + db[i] + dc[i]]);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%lld\n"</span>, ans);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <p><a href="https://leetcode-cn.com/problems/number-of-nodes-in-the-sub-tree-with-the-same-label/" target="_blank" rel="noopener">LeetCode 1519.子树中标签相同的节点数</a></p>
+<p>给你一棵树（即，一个连通的无环无向图），这棵树由编号从 0  到 n - 1 的 n 个节点组成，且恰好有 n - 1 条 edges 。树的根节点为节点 0 ，树上的每一个节点都有一个标签，也就是字符串 labels 中的一个小写字符（编号为 i 的 节点的标签就是 labels[i] ）</p>
+<p>边数组 edges 以 edges[i] = [ai, bi] 的形式给出，该格式表示节点 ai 和 bi 之间存在一条边。</p>
+<p>返回一个大小为 n 的数组，其中 ans[i] 表示第 i 个节点的子树中与节点 i 标签相同的节点数。</p>
+<p>树 T 中的子树是由 T 中的某个节点及其所有后代节点组成的树。</p>
+<h4 id="输入输出"><a href="#输入输出" class="headerlink" title="输入输出"></a>输入输出</h4><p>输入：n = 4, edges = [[0,1],[1,2],[0,3]], labels = “bbbb”<br>输出：[4,2,1,1]<br>解释：节点 2 的子树中只有节点 2 ，所以答案为 1 。<br>节点 3 的子树中只有节点 3 ，所以答案为 1 。<br>节点 1 的子树中包含节点 1 和 2 ，标签都是 ‘b’ ，因此答案为 2 。<br>节点 0 的子树中包含节点 0、1、2 和 3，标签都是 ‘b’，因此答案为 4 。</p>
+<p>输入：n = 5, edges = [[0,1],[0,2],[1,3],[0,4]], labels = “aabab”<br>输出：[3,2,1,1,1]</p>
+<p>输入：n = 6, edges = [[0,1],[0,2],[1,3],[3,4],[4,5]], labels = “cbabaa”<br>输出：[1,2,1,1,2,1]</p>
+<p>输入：n = 7, edges = [[0,1],[1,2],[2,3],[3,4],[4,5],[5,6]], labels = “aaabaaa”<br>输出：[6,5,4,1,3,2,1]</p>
+<p>提示：</p>
+<p>1 &lt;= n &lt;= 10^5<br>edges.length == n - 1<br>edges[i].length == 2<br>0 &lt;= ai, bi &lt; n<br>ai != bi<br>labels.length == n<br>labels 仅由小写英文字母组成</p>
+<h4 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h4><p>先将输入的边用邻接链表法构造成树（图），好遍历，然后直接DFS后序遍历一遍。需要用一个数组<code>vis</code>记录是否遍历过这个节点。因为是想要知道以当前节点为根的子树共有多少个与当前节点相同的label，所以在每次遍历到一个新的节点时，记录下目前共有多少个与当前节点相同的label，然后遍历完了以当前节点为根的子树之后回到当前节点，再记录一下目前共有多少个与当前节点相同的label，他们的差值就是以当前节点为根的子树所有的与当前节点相同的label个数。</p>
+<h4 id="DFS后序遍历"><a href="#DFS后序遍历" class="headerlink" title="DFS后序遍历"></a>DFS后序遍历</h4><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; a;</span><br><span class="line">    <span class="keyword">int</span> val[<span class="number">30</span>];</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; ans;</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">bool</span>&gt; vis;</span><br><span class="line">    </span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; <span class="title">countSubTrees</span><span class="params">(<span class="keyword">int</span> n, <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt;&amp; eg, <span class="built_in">string</span> s)</span> </span>&#123;</span><br><span class="line">        a = <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt;(n);</span><br><span class="line">        ans = <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;(n);</span><br><span class="line">        vis = <span class="built_in">vector</span>&lt;<span class="keyword">bool</span>&gt;(n);</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">auto</span> &amp;i : eg) &#123; <span class="comment">// 构造邻接链表</span></span><br><span class="line">            a[i[<span class="number">0</span>]].push_back(i[<span class="number">1</span>]);</span><br><span class="line">            a[i[<span class="number">1</span>]].push_back(i[<span class="number">0</span>]);</span><br><span class="line">        &#125;</span><br><span class="line">        dfs(<span class="number">0</span>, n, s);</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">dfs</span><span class="params">(<span class="keyword">int</span> u, <span class="keyword">int</span> n, <span class="built_in">string</span>&amp; s)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(vis[u]) <span class="keyword">return</span> ;</span><br><span class="line">        <span class="keyword">if</span>(u &gt;= n) <span class="keyword">return</span> ;</span><br><span class="line">        vis[u] = <span class="literal">true</span>;</span><br><span class="line">        <span class="comment">// cout &lt;&lt; u &lt;&lt; " ";</span></span><br><span class="line">        <span class="keyword">int</span> pre = val[s[u]-<span class="string">'a'</span>];</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">auto</span> &amp;i : a[u])</span><br><span class="line">            dfs(i, n, s);</span><br><span class="line">        ans[u] = ++val[s[u]-<span class="string">'a'</span>] - pre; <span class="comment">// 计算差值</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
     </div>
 
     
@@ -268,8 +260,7 @@
 
       <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/Codeforces/" rel="tag"># Codeforces</a>
-              <a href="/tags/BFS/" rel="tag"># BFS</a>
+              <a href="/tags/LeetCode/" rel="tag"># LeetCode</a>
           </div>
 
         
@@ -278,13 +269,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2020/05/05/Codeforces-Round-636-Div-3-C-Alternating-Subsequence/" rel="prev" title="Codeforces Round #636 (Div. 3) C. Alternating Subsequence">
-      <i class="fa fa-chevron-left"></i> Codeforces Round #636 (Div. 3) C. Alternating Subsequence
+    <a href="/2020/07/22/LeetCode%20%E7%AC%AC198%E5%9C%BA%E5%91%A8%E8%B5%9B%201518.%E6%8D%A2%E9%85%92%E9%97%AE%E9%A2%98/" rel="prev" title="LeetCode 第198场周赛 1518.换酒问题">
+      <i class="fa fa-chevron-left"></i> LeetCode 第198场周赛 1518.换酒问题
     </a></div>
-      <div class="post-nav-item">
-    <a href="/2020/07/22/LeetCode%20%E7%AC%AC198%E5%9C%BA%E5%91%A8%E8%B5%9B%201518.%E6%8D%A2%E9%85%92%E9%97%AE%E9%A2%98/" rel="next" title="LeetCode 第198场周赛 1518.换酒问题">
-      LeetCode 第198场周赛 1518.换酒问题 <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -343,7 +331,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#Input"><span class="nav-text">Input</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Output"><span class="nav-text">Output</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#分析"><span class="nav-text">分析</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#排序-BFS"><span class="nav-text">排序+BFS</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#输入输出"><span class="nav-text">输入输出</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#分析"><span class="nav-text">分析</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#DFS后序遍历"><span class="nav-text">DFS后序遍历</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 

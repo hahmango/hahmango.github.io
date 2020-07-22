@@ -649,4 +649,51 @@ B: a, c, b, e, d</script><p>显然对于这样两个序列来说，由于 A 的�
         <tag>LCS</tag>
       </tags>
   </entry>
+  <entry>
+    <title>LeetCode 第198场周赛 1519.子树中标签相同的节点数</title>
+    <url>/2020/07/22/LeetCode-%E7%AC%AC198%E5%9C%BA%E5%91%A8%E8%B5%9B-1519-%E5%AD%90%E6%A0%91%E4%B8%AD%E6%A0%87%E7%AD%BE%E7%9B%B8%E5%90%8C%E7%9A%84%E8%8A%82%E7%82%B9%E6%95%B0/</url>
+    <content><![CDATA[<p><a href="https://leetcode-cn.com/problems/number-of-nodes-in-the-sub-tree-with-the-same-label/" target="_blank" rel="noopener">LeetCode 1519.子树中标签相同的节点数</a></p>
+<p>给你一棵树（即，一个连通的无环无向图），这棵树由编号从 0  到 n - 1 的 n 个节点组成，且恰好有 n - 1 条 edges 。树的根节点为节点 0 ，树上的每一个节点都有一个标签，也就是字符串 labels 中的一个小写字符（编号为 i 的 节点的标签就是 labels[i] ）</p>
+<p>边数组 edges 以 edges[i] = [ai, bi] 的形式给出，该格式表示节点 ai 和 bi 之间存在一条边。</p>
+<p>返回一个大小为 n 的数组，其中 ans[i] 表示第 i 个节点的子树中与节点 i 标签相同的节点数。</p>
+<p>树 T 中的子树是由 T 中的某个节点及其所有后代节点组成的树。</p>
+<h4 id="输入输出"><a href="#输入输出" class="headerlink" title="输入输出"></a>输入输出</h4><p>输入：n = 4, edges = [[0,1],[1,2],[0,3]], labels = “bbbb”<br>输出：[4,2,1,1]<br>解释：节点 2 的子树中只有节点 2 ，所以答案为 1 。<br>节点 3 的子树中只有节点 3 ，所以答案为 1 。<br>节点 1 的子树中包含节点 1 和 2 ，标签都是 ‘b’ ，因此答案为 2 。<br>节点 0 的子树中包含节点 0、1、2 和 3，标签都是 ‘b’，因此答案为 4 。</p>
+<p>输入：n = 5, edges = [[0,1],[0,2],[1,3],[0,4]], labels = “aabab”<br>输出：[3,2,1,1,1]</p>
+<p>输入：n = 6, edges = [[0,1],[0,2],[1,3],[3,4],[4,5]], labels = “cbabaa”<br>输出：[1,2,1,1,2,1]</p>
+<p>输入：n = 7, edges = [[0,1],[1,2],[2,3],[3,4],[4,5],[5,6]], labels = “aaabaaa”<br>输出：[6,5,4,1,3,2,1]</p>
+<p>提示：</p>
+<p>1 &lt;= n &lt;= 10^5<br>edges.length == n - 1<br>edges[i].length == 2<br>0 &lt;= ai, bi &lt; n<br>ai != bi<br>labels.length == n<br>labels 仅由小写英文字母组成</p>
+<h4 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h4><p>先将输入的边用邻接链表法构造成树（图），好遍历，然后直接DFS后序遍历一遍。需要用一个数组<code>vis</code>记录是否遍历过这个节点。因为是想要知道以当前节点为根的子树共有多少个与当前节点相同的label，所以在每次遍历到一个新的节点时，记录下目前共有多少个与当前节点相同的label，然后遍历完了以当前节点为根的子树之后回到当前节点，再记录一下目前共有多少个与当前节点相同的label，他们的差值就是以当前节点为根的子树所有的与当前节点相同的label个数。</p>
+<h4 id="DFS后序遍历"><a href="#DFS后序遍历" class="headerlink" title="DFS后序遍历"></a>DFS后序遍历</h4><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; a;</span><br><span class="line">    <span class="keyword">int</span> val[<span class="number">30</span>];</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; ans;</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">bool</span>&gt; vis;</span><br><span class="line">    </span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; <span class="title">countSubTrees</span><span class="params">(<span class="keyword">int</span> n, <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt;&amp; eg, <span class="built_in">string</span> s)</span> </span>&#123;</span><br><span class="line">        a = <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt;(n);</span><br><span class="line">        ans = <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;(n);</span><br><span class="line">        vis = <span class="built_in">vector</span>&lt;<span class="keyword">bool</span>&gt;(n);</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">auto</span> &amp;i : eg) &#123; <span class="comment">// 构造邻接链表</span></span><br><span class="line">            a[i[<span class="number">0</span>]].push_back(i[<span class="number">1</span>]);</span><br><span class="line">            a[i[<span class="number">1</span>]].push_back(i[<span class="number">0</span>]);</span><br><span class="line">        &#125;</span><br><span class="line">        dfs(<span class="number">0</span>, n, s);</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">dfs</span><span class="params">(<span class="keyword">int</span> u, <span class="keyword">int</span> n, <span class="built_in">string</span>&amp; s)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(vis[u]) <span class="keyword">return</span> ;</span><br><span class="line">        <span class="keyword">if</span>(u &gt;= n) <span class="keyword">return</span> ;</span><br><span class="line">        vis[u] = <span class="literal">true</span>;</span><br><span class="line">        <span class="comment">// cout &lt;&lt; u &lt;&lt; " ";</span></span><br><span class="line">        <span class="keyword">int</span> pre = val[s[u]-<span class="string">'a'</span>];</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">auto</span> &amp;i : a[u])</span><br><span class="line">            dfs(i, n, s);</span><br><span class="line">        ans[u] = ++val[s[u]-<span class="string">'a'</span>] - pre; <span class="comment">// 计算差值</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>LeetCode</category>
+      </categories>
+      <tags>
+        <tag>LeetCode</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>LeetCode 第198场周赛 1518.换酒问题</title>
+    <url>/2020/07/22/LeetCode%20%E7%AC%AC198%E5%9C%BA%E5%91%A8%E8%B5%9B%201518.%E6%8D%A2%E9%85%92%E9%97%AE%E9%A2%98/</url>
+    <content><![CDATA[<p><a href="https://leetcode-cn.com/problems/water-bottles/" target="_blank" rel="noopener">LeetCode 1518. 换酒问题</a></p>
+<p>小区便利店正在促销，用 numExchange 个空酒瓶可以兑换一瓶新酒。你购入了 numBottles 瓶酒。</p>
+<p>如果喝掉了酒瓶中的酒，那么酒瓶就会变成空的。</p>
+<p>请你计算 最多 能喝到多少瓶酒。<a id="more"></a></p>
+<h4 id="输入输出"><a href="#输入输出" class="headerlink" title="输入输出"></a>输入输出</h4><p>输入：numBottles = 9, numExchange = 3<br>输出：13<br>解释：你可以用 3 个空酒瓶兑换 1 瓶酒。<br>所以最多能喝到 9 + 3 + 1 = 13 瓶酒。</p>
+<p>输入：numBottles = 15, numExchange = 4<br>输出：19<br>解释：你可以用 4 个空酒瓶兑换 1 瓶酒。<br>所以最多能喝到 15 + 3 + 1 = 19 瓶酒。</p>
+<p>输入：numBottles = 5, numExchange = 5<br>输出：6</p>
+<p>输入：numBottles = 2, numExchange = 3<br>输出：2</p>
+<p>提示：</p>
+<p>1 &lt;= numBottles &lt;= 100<br>2 &lt;= numExchange &lt;= 100</p>
+<h4 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h4><p>直接使用<code>while</code>循环，每一轮都喝掉所有酒，然后用酒瓶换酒（直接除法就可以求得能换到几瓶酒），更新酒的数量。当空酒瓶数量不足以换酒时，退出循环。</p>
+<h4 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h4><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">numWaterBottles</span><span class="params">(<span class="keyword">int</span> n, <span class="keyword">int</span> m)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> ans=n, a=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span>(n &gt; <span class="number">0</span>) &#123;</span><br><span class="line">            a = n / m;</span><br><span class="line">            ans += a;</span><br><span class="line">            n = a + n % m;</span><br><span class="line">            <span class="keyword">if</span>(n &lt; m) <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>LeetCode</category>
+      </categories>
+      <tags>
+        <tag>LeetCode</tag>
+      </tags>
+  </entry>
 </search>
